@@ -1,0 +1,49 @@
+body {
+    background-image: url("images/BG.png");
+}
+.myCard-headerx{
+    text-align: center;
+    background-color: #2e3e4e;
+    font-weight: bold;
+    font-size: 150%;
+    color: white;
+}
+
+.myCard-bodyx{
+    background-color: #BC9051;
+    font-size: large;
+    color: white;
+}
+
+.join-btn{
+    width: 100%;
+    background-color: #BC9051;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.row-lable{
+    color: black;
+    font-weight: bold;
+    margin: 3%;
+}
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 5px solid #000;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
+

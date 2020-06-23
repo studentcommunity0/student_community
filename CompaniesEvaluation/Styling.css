@@ -1,0 +1,81 @@
+body {
+    background-image: url("images/BG.png");
+}
+.myCard{
+    background-color: white;
+    box-shadow: 0px 0px 1px black;
+    text-align: center;    
+}
+.com{
+    padding-top: 1%;
+    padding-right: 2%;
+    border-bottom: rgba(206, 204, 204, 0.637) solid;
+    border-width: thin;
+}
+.join-btn{
+    margin-left: 2%;
+    margin-bottom: 2%;
+    background-color: #BC9051;
+    font-weight: bold;
+    color: white;
+}
+.search-btn{
+    background-color: #BC9051;
+    font-weight: bold; 
+    color: white; 
+    margin-right: 1%; 
+    border-radius: 100%; 
+    font-size:3px;
+}
+.myCard-header{
+    color: green;
+}
+
+body {
+    background-image: url("images/BG.png");
+}
+.myCard-headerx{
+    text-align: center;
+    background-color: #2e3e4e;
+    font-weight: bold;
+    font-size: 150%;
+    color: white;
+}
+
+.myCard-bodyx{
+    background-color: #BC9051;
+    font-size: large;
+    color: white;
+}
+
+.join-btn{
+    width: 100%;
+    background-color: #BC9051;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.row-lable{
+    color: black;
+    font-weight: bold;
+    margin: 3%;
+}
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 5px solid #000;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
