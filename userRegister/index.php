@@ -35,7 +35,7 @@ if(!isset($_SESSION['id'])){
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="http://localhost/CompaniesEvaluation/HomePage.html">Companies </a>
+                    <a class="nav-link" href="http://localhost/student_community-master/CompaniesEvaluation/HomePage.html">Companies </a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?profile=1">Profile</a>
