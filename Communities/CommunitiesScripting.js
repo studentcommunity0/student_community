@@ -70,7 +70,6 @@ function addCommunity(){
     var communityDescription = document.getElementById("community-disc").value;
 
     if(communityName=="" || communityDescription==""){
-        alert("incorrect")
         //document,getElementById("community-error-message").style.visibility = "";
         if(communityName==""){
             document.getElementById("community-name").style.borderColor="red";
@@ -80,7 +79,6 @@ function addCommunity(){
         }
     }
     else{
-        alert("adding")
         xml = new XMLHttpRequest();
         xml.open("GET","addCommunity.php?communityName="+communityName+"&communityDescription="+communityDescription+"&category="+category+"&availability="+availability,true);
         xml.send();
@@ -137,9 +135,6 @@ function joinPrivateCommunities(){
     var communityName = document.getElementById("private-community-name").value;
     var communityID = document.getElementById("private-community-id").value;
 
-    alert(communityName);
-    alert(communityID);
-
     xml = new XMLHttpRequest();
     xml.open("GET","joinPrivateCommunity.php?communityName="+communityName+"&communityID="+communityID,true);
     xml.send()
@@ -151,7 +146,8 @@ function joinPrivateCommunities(){
     }
 }
 
-function communityPageStart(){ 
+function communityPageStart(){
+    $("#message-textarea").hide();
     xml = new XMLHttpRequest();
     xml.open("GET","GetTheMessages.php",true);
     xml.send();
@@ -188,6 +184,33 @@ function manage(){
 function removePart(id){
     xml = new XMLHttpRequest();
     xml.open("GET","removePart.php?id="+id,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            alert(xml.responseText);
+        }
+    }
+}
+
+function showTexrarea(){
+    location.href="#message-textarea";
+    $("#message-textarea").fadeToggle(1000);
+}
+function setMessageToSession(){
+    var TextareaInput = encodeURIComponent(CKEDITOR.instances.editor1.getData());
+    xml = new XMLHttpRequest();
+    xml.open("GET","setSessionMessageVariable.php?TextareaInput="+TextareaInput,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            alert(xml.responseText);
+        }
+    }
+}
+function sendTheMessage(){
+    var TextareaInput = encodeURIComponent(CKEDITOR.instances.editor1.getData());
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendMessage.php?TextareaInput="+TextareaInput,true);
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){

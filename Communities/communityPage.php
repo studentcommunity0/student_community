@@ -16,9 +16,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+       
     </head>
     <body onload="communityPageStart()">
-
         <nav class="navbar navbar-expand-md" style="background-color: #24313e;" >
             <a class="navbar-brand" href="#">
                 <a style="font-weight: bolder; color: gainsboro; font-size: 2em;">LOGO</a>
@@ -47,6 +47,13 @@
             <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
         </div>
         <div id="main" style="text-align:center">
-           
+        </div>
+        <div class="myCard" id="message-textarea">
+            <textarea name="editor1" id="editor1"></textarea>
+            <script>
+                    CKEDITOR.replace( 'editor1' );
+            </script>
+            <button class='btn' onclick="sendTheMessage()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send -></button>
+        </div>
     </body>
 </html>

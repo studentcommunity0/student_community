@@ -45,8 +45,8 @@
         <div>
             <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
         </div>
-        <div class='row myCard' style="background-color: black; font-weight:bolde; color:white">Community Members</div>
-        <div class="col myCard" id="members" style="text-align:center;">
+        <div class='row myCard' style="background-color:#24313e; font-weight:bold; color:white; font-size:150%">Community Information</div>
+        <div class="col myCard" id="members">
         </div>
     </body>
 </html>

@@ -2,6 +2,7 @@
     session_start();
     $communityName=$_SESSION['community_name'];
     $userName = $_SESSION['username'];
+    $communityID = 0;
     $connectio = mysqli_connect("localhost","root","","student_community");
     if(mysqli_connect_errno()){
         die("Error: could not connect" . mysqli_connect_error());
@@ -23,6 +24,26 @@
     else{
         echo "did not perform the query";
     }
+
+    echo "<h4 style='background-color:#BC9051; font-weight:bold; color:white'>Community ID<h4>";
+    $sql1="SELECT id FROM community WHERE name = '$communityName'";
+    if($result1 = mysqli_query($connectio,$sql1)){
+        if(mysqli_num_rows($result1)>0){
+            $cid = mysqli_fetch_row($result1);
+            $communityID = $cid[0];
+        }
+    }
+    echo "<h5>" . $communityID . "</h5><br>";
+    echo "<h4 style='background-color:#BC9051; font-weight:bold; color:white'>Community Participants<h4>";
+    echo "<div class='row'>";
+    echo "<div class='col-3'>";
+    echo "<h5 style='padding-left:2%;'>";
+    echo "Username";
+    echo "</h5><br></div>";
+    echo "<div class='col-4'>";
+    echo "<a style='padding-left: 2%;  font-size: 1em;'>";
+    echo "Email";
+    echo "</a><br></div></div>";
 
     $sql2 = "SELECT * from user WHERE id IN (";
     $sql2 = $sql2 . $participantsIDs . ")";
