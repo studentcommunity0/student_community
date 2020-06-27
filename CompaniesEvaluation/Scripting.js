@@ -1,5 +1,5 @@
 function add(n){
-    location.href = "newCompany.html";
+    location.href = "newCompany.php";
 }
 
 function addCompany(){
