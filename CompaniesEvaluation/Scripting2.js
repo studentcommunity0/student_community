@@ -17,7 +17,7 @@ function getHompageCompanies(){
 }
 
 function goToTrainingEvaluation(){
-    location.href="TrainingEvaluation.html";
+    location.href="TrainingEvaluation.php";
 }
 
 function setCompanyInSession(CN){

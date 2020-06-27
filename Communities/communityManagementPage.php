@@ -11,42 +11,26 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="CommunitiesStyling.css">
+        <link rel="stylesheet" href="../assets/css/maintheme.css">
+        <link rel="stylesheet" href="../assets/css/sidenavbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <script src="CommunitiesScripting.js"></script>
+        <script src="../assets/js/sidenavbar.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     </head>
     <body onload="manage()">
-        <nav class="navbar navbar-expand-md" style="background-color: #24313e;" >
-            <a class="navbar-brand" href="#">
-                <a style="font-weight: bolder; color: gainsboro; font-size: 2em;">LOGO</a>
-            </a>
-            <button class="navbar-toggler"type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon" style="color: gainsboro;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="navlinks nav-link" style="color: white;" href="#">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navlinks nav-link" style="color: white;" href="#">CONTACT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navlinks nav-link" style="color: white;" href="#">SIGNIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navlinks nav-link" style="color: white;" href="#">NEW USER?</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <!--NAVBAR-->
+        <?php require('../studentcommunitynavbar.php');?>
+
         <div>
             <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
         </div>
-        <div class='row myCard' style="background-color: black; font-weight:bolde; color:white">Community Members</div>
-        <div class="col myCard" id="members" style="text-align:center;">
+        <div class='row myCard' style="background-color:#24313e; font-weight:bold; color:white; font-size:150%">Community Information</div>
+        <div class="col myCard" id="members">
         </div>
     </body>
 </html>
