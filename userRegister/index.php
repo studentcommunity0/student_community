@@ -2,12 +2,6 @@
 
 require_once('controller/authController.php');
 
-// if the user clicked on the email he will have a token
-if (isset($_GET['token'])){
-    $token = $_GET['token'];
-    verifyUser($token);
-}
-
 // if the user is not signed in
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
@@ -34,12 +28,12 @@ if(!isset($_SESSION['id'])){
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <!-- <li class="nav-item active">
                     <a class="nav-link" href="http://localhost/student_community-master/CompaniesEvaluation/HomePage.html">Companies </a>
-                </li>
-                <li class="nav-item active">
+                </li> -->
+                <!-- <li class="nav-item active">
                     <a class="nav-link" href="index.php?profile=1">Profile</a>
-                </li>
+                </li> -->
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?logout=1">Logout</a>
                 </li>
@@ -69,17 +63,7 @@ if(!isset($_SESSION['id'])){
 
                 <?php if($_SESSION['verified'] == 0) :?>
                     <div class="alert alert-warning">
-                    you need to verify your account, check your email at <b><?php echo $_SESSION['email'];?></b>
-                    </div>
-                <?php endif;?>
-
-                <?php if(isset($_SESSION['greenalert'])) :?>
-                    <div class="alert alert-success">
-                        <b><?php 
-                                echo $_SESSION['greenalert'];
-                                unset($_SESSION['greenalert']);
-                            ?>
-                        </b>
+                    you need to verify your account,close this window then check your email at <b><?php echo $_SESSION['email'];?></b>
                     </div>
                 <?php endif;?>
                 

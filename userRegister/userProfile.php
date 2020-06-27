@@ -1,6 +1,7 @@
 <?php 
 
-require_once('controller/authController.php');
+require_once("ChangeUserInfo.php");
+
 
 ?>
 
@@ -26,9 +27,7 @@ require_once('controller/authController.php');
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://localhost/CompaniesEvaluation/HomePage.html">Companies </a>
-                </li>
+
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?profile=1">Profile</a>
                 </li>
@@ -52,6 +51,24 @@ require_once('controller/authController.php');
                     <h2 id="userInfoHeader">User Information</h2> 
                     
                     <div class="userInfo">
+                        <div class="row">
+                            <div class="col-12">
+                                <?php if(count($errors) > 0): ?>
+                                    <div class="alert alert-danger">
+                                    <?php foreach($errors as $error): ?>
+                                    <li><?php echo $error ?></li>
+                                    <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if(count($success) > 0): ?>
+                                    <div class="alert alert-success">
+                                    <?php foreach($success as $s): ?>
+                                    <li><?php echo $s ?></li>
+                                    <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-2">
                                 <h5>Username: </h5>
@@ -108,7 +125,7 @@ require_once('controller/authController.php');
             <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
-            <!-- send user info to be send to js -->
+            <!-- user info to be send to js -->
             <div class="container" style="margin-top: 50px">
                 <label for="uname"><b>New Username</b></label>
                 <input type="text" id="newusernameText" placeholder="Enter New Username" name="uname" required>
@@ -122,25 +139,24 @@ require_once('controller/authController.php');
     <!-- overlay card for changing password-->
 
     <div id="id02" class="modal">
-        <form class="modal-content animate" method="post" id="myform">
+        <form class="modal-content animate" method="POST" id="myform">
             <div class="imgcontainer">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
-            <!-- send user info to be send to js -->
-            <div class="container" style="margin-top: 50px">
-                <label for="uname"><b>current password:  </b></label>
-                <input type="text" id="currentPassword" placeholder="Enter current password" name="uname" required>
+            <!-- user info to be send to js -->
+            <div class="containerPass" style="margin-top: 50px">
+                
+                <label for=""><b>current password:  </b></label>
+                <input type="text" id="currentPassword" placeholder="Enter current password" name="cPass" required>
                 <br>
-                <label for="uname"><b>new password:  </b></label>
-                <input type="text" id="newusernameText" placeholder="Enter new password" name="uname" required>
+                <label for=""><b>new password:  </b></label>
+                <input type="text" id="newPassword1" placeholder="Enter new password" name="Pass1" required>
                 <br>
-                <label for="uname"><b>confirm new password:  </b></label>
-                <input type="text" id="newusernameText" placeholder="confirm new password" name="uname" required>
+                <label for=""><b>confirm new password:  </b></label>
+                <input type="text" id="newPassword2" placeholder="confirm new password" name="Pass2" required>
                 <br>
-                <input type="submit" id="changePassBtn" name="ChangeUsernameButton" value="Submit Change"/>             
+                <input type="submit" id="changePassBtn" name="ChangePasswordButton" value="Submit Change"/>             
             </div>
-
-            
         </form>
     </div>
                     

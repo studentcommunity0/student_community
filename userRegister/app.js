@@ -33,32 +33,4 @@ $(document).ready(function(){
     });
 
 
-    $("#changePassBtn").on('click', function(e){
-        e.preventDefault();
-        //get current password
-        let currentPass = $("#currentPassword").val();
-
-        console.log(currentPass);
-        let passwords ={
-            "currentPassword": currentPass
-        };
-
-        $.ajax({
-            url: "ChangeUserInfo.php",
-            type: "POST",
-            data: passwords,
-            success: function(){
-                alert("password changed successfully");
-            }
-        });
-
-
-    });
-
-
-
-    
-
-
-
 });
