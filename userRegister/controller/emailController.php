@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'vendor/autoload.php';
+require_once '../userRegister/vendor/autoload.php';
 
 // Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
@@ -28,7 +28,7 @@ function sendVerificationEmail($userEmail, $token){
             <p>
                 Thank you for signing up on our website. click the link below to verify your email.
             </p>
-            <a href="http://localhost/userRegister/index.php?token=' . $token . '">
+            <a href="http://localhost/student_community-master/CompaniesEvaluation/HomePage.php?token=' . $token . '">
                 Verify your email address
             </a>
         </div>
