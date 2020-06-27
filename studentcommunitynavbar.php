@@ -6,7 +6,7 @@
       <div id="student-community-side-nav-id" class="student-community-side-nav">
         <a href="javascript:void(0)" class="sidenavbarclosebtn" onclick="closeNav()">&times;</a>
         <div class="sidenavbaritems">
-          <a href="../userRegister/"><i class="fa fa-th-large "></i> Dashboard</a>
+ <a href="../userRegister/"><i class="fa fa-th-large "></i> Dashboard</a>
         </div>
         <div class="sidenavbaritems">
           <a href="../CompaniesEvaluation/HomePage.php"><i class="fa fa-building"></i> Companies</a>
@@ -21,7 +21,7 @@
           <a href="#"><i class="fa fa-comments"></i> Contact Us</a>
         </div>
         <div class="sidenavbaritems">
-          <a href="../userRegister/login.php?logout=1"><i class="fa fa-sign-out "></i> logout</a>
+        <a href="../userRegister/login.php?logout=1"><i class="fa fa-sign-out "></i> logout</a>
         </div>
       </div>
     </nav>

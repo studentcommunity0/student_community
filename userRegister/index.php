@@ -22,9 +22,8 @@ if(!isset($_SESSION['id'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!--NAVBAR-->
-     <?php require('../studentcommunitynavbar.php');?>
-    
+<!--NAVBAR-->
+     <?php require('../studentcommunitynavbar.php');?>    
     <div class="container-fluid" style="background-color: lightblue; height: 800px">
         
         <div class="row" id="row1">

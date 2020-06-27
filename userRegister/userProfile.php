@@ -22,7 +22,7 @@ require_once("ChangeUserInfo.php");
 <body>
 
 <!-- navbar -->
-    <?php require('../studentcommunitynavbar.php');?>
+<?php require('../studentcommunitynavbar.php');?>
 
 <!-- user information -->
 
