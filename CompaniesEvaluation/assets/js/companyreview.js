@@ -22,15 +22,14 @@ $(document).ready(function(){
         .catch( error => {
             console.error( error );
     });
-    
 
 
     // STAR RATING
-    let stars = document.querySelectorAll('.star');
+    let stars = document.querySelectorAll('.star.company-evaluation-add-star-rating');
     stars.forEach(function(star){
         star.addEventListener('click', setRating); 
     });      
-    let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+    let rating = parseInt(document.querySelector('.stars.company-evaluation-add-star-rating').getAttribute('data-rating'));
     let target = stars[rating - 1];
     target.dispatchEvent(new MouseEvent('click'));
 
@@ -128,7 +127,7 @@ function retrieve_reviews(){
 
 function setRating(ev){
     let span = ev.currentTarget;
-    let stars = document.querySelectorAll('.star.company-evaluation-add-star-rating');
+    let stars = document.querySelectorAll('.company-evaluation-add-star-rating.star');
     let match = false;
     let num = 0;
     stars.forEach(function(star, index){
