@@ -45,6 +45,25 @@ h3{
     
 }
 
+.containerPass{
+  display: inline-block;
+  text-align: center;
+}
+
+.containerPass .alert{
+  text-align: left;
+}
+
+#currentPassword{
+  margin-left: 40px;
+}
+#newPassword1{
+  margin-left: 65px;
+}
+#changePassBtn{
+  margin-top: 30px;
+  margin-left: 60px;
+}
 
 /* overlay card */
 

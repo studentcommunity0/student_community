@@ -39,6 +39,15 @@ if (isset($_POST['registerBtn'])){
         array_push($errors, "passwords do not match");
     }
 
+    // check that email is a university email
+    
+    // $pattern = "/.edu.sa/i";
+    // $uniEmail = preg_match($pattern, $email);
+    // //if there is no match
+    // if($uniEmail != 1){
+    //     array_push($errors, "the email must be a university email");
+    // }
+
     // check db for existing email and username
 
     $emailQuery = "SELECT * FROM `user` WHERE username=? or email=? LIMIT 1";
@@ -72,7 +81,7 @@ if (isset($_POST['registerBtn'])){
         $query = "INSERT INTO `user`(`username`, `email`, `verified`, `token`, `password`) VALUES (?, ?, ?, ?, ?)";
         $stmt1 = $db->prepare($query);
         $stmt1->bind_param('ssiss', $username, $email, $verified, $token, $password);
-        printf("Error: %s.\n", $stmt1->error);
+        //printf("Error: %s.\n", $stmt1->error);
 
         if ($stmt1->execute()){
             $user_id = $db->insert_id;
@@ -99,7 +108,6 @@ if (isset($_POST['registerBtn'])){
 
 if (isset($_POST['loginBtn'])){
 
-
     $email = mysqli_real_escape_string($db, $_POST['userEmail']);
     $password = mysqli_real_escape_string($db, $_POST['userPassword1']);
 
@@ -122,12 +130,17 @@ if (isset($_POST['loginBtn'])){
         $user = $result->fetch_assoc();
 
         if(password_verify($password, $user['password'])){
-            
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['verified'] = $user['verified'];
-            header("Location: index.php");
+            //if user is not verified then go to index
+            if($_SESSION['verified'] == 0){
+                header("Location: ../userRegister/index.php");
+            }else{
+                header("Location: ../CompaniesEvaluation/HomePage.php");
+            }
+            
 
         }else{
             array_push($errors, "Email or password are incorrect");
@@ -147,7 +160,7 @@ if(isset($_GET['logout'])){
     unset($_SESSION['username']);
     unset($_SESSION['email']);
     unset($_SESSION['verified']);
-    header("Location: login.php");
+    header("Location: ../userRegister/login.php");
 }
 
 
@@ -170,11 +183,10 @@ function verifyUser($token){
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['verified'] = 1;
-            $_SESSION['greenalert'] = "Your email is now verified ";
-            header("Location: index.php");
+            $seccessMessage = "Your email is now verified ";
+            $_SESSION['verifyMessage'] = $seccessMessage;
+            header("Location: ../CompaniesEvaluation/HomePage.php");
         }
-
-
     }else{
         echo "user not found";
     }
@@ -184,11 +196,9 @@ function verifyUser($token){
 // ---------------------------------------user information page
 
 if(isset($_GET['profile'])){
-    
-    header("Location: userProfile.php");
+    header("Location: ../userRegister/userProfile.php");
 }
 
-//change username
 
 
 
