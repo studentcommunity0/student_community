@@ -1,0 +1,60 @@
+body{
+    background-color: #dddada !important;
+}
+
+
+/* NAVBAR */
+.navbar{
+    background-color: #3d3d3d !important;
+}
+
+
+/* SECTION HEADERS AND CONTENTS*/
+.info-header{
+    background-color:#3d3d3d !important;
+}
+.info-header-text{
+    color:#ffa801;
+    font-weight: 600;
+}
+.info-content{
+    background-color: #e7e6e6 ;
+}
+.info-panel-hover-look{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.black-text-orange-bg{
+    background-color: #ffa801 !important; 
+    color: #3d3d3d !important;
+}
+
+.orange-text-black-bg{
+    background-color:#3d3d3d !important; 
+    color:#ffa801 !important;
+}
+
+
+/* MAIN BUTTONS THEME */
+.orange-btn-black-text-main{
+    width: 200px;
+    height: 50px;
+    color: #3d3d3d;
+    font-weight: 647;
+    background-color: #ff9e01;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border:none;
+    outline: none;
+    cursor:pointer;
+    
+}
+.orange-btn-black-text-main:focus{
+    color: #ff9e01;
+    background-color: #3d3d3d;
+    transition:none;
+}
+.orange-btn-black-text-main:hover {
+    transition:  .5s ease;
+    box-shadow: none;
+    border: none;
+}
