@@ -1,0 +1,92 @@
+
+/* COMPANY DETAILS SECTION */
+
+
+/* COMPANY REVIEWS SECTION */
+.reviewer-div{
+    padding: 10px;
+    border-top: solid;
+    border-width: 0.1rem;
+    border-color: #2d343650;
+}
+
+.page-link{
+ border: none !important;
+}
+/* COMPANY EVALUATION OVERLAY */
+#review-contents{
+    position:fixed;
+    display:none;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.712) ;
+    z-index:2;
+    
+}
+#review-panel{
+    position: absolute;
+    width:100%;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+}
+.review-panel-labels{
+    color:black;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size:20px;
+    margin-bottom:0;
+}
+.overlay-card{
+    background-color: #e7e6e6 ;
+    overflow-y:auto;
+    
+}
+.overlay-contents{
+    margin: 20px;
+    max-height:500px;
+    overflow-y:scroll;
+    overflow-x:auto;
+}
+.evaluation-from-input{
+    width:100%;
+    height: 40px;
+}
+.fa.fa-star.checked{
+    color: #ffa801;
+}
+.fa.fa-star.unchecked{
+    color:black;
+}
+.fa.fa-star.unchecked:hover{
+    color:#ffa801;
+}
+
+
+/* STAR RATING FOR ADDING REVIEW */
+.star{
+    color: #ff9e01;
+    font-size: 2.0rem;
+  }
+  .star::before{
+    content: '\2606';    /* star outline */
+    cursor: pointer;
+  }
+  .star.rated::before{
+    /* the style for a selected star */
+    content: '\2605';  /* filled star */
+  }
+  .star.rated.half-star::before{
+    content:'\2605';
+    color: #ff9e01;
+    position: absolute;
+    width: 13px;
+    overflow: hidden;
+}
+
+ 
