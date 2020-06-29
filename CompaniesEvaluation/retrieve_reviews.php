@@ -2,9 +2,29 @@
     require_once('session.php');
     include("database_connect.php");
 
-    # Query to get all reviews of the company
-    $company_id = $_SESSION['company_id'];
+    # pagination feature
+    $reviews_limit = isset($_GET['review_limit']) ? $_GET['review_limit'] : $_SESSION['reviews_limit_on_company_php_page'];
     
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    if($page == "next"){ 
+        if($_SESSION['current_page'] == $_SESSION['total_review_pages_company_php']){ 
+            $page = $_SESSION['current_page'];
+        }else{
+            $page = $_SESSION['current_page'] + 1;
+        }
+     }
+    elseif($page == "prev"){ 
+        if($_SESSION['current_page'] == 1){ 
+            $page = $_SESSION['current_page'];
+        }else{
+            $page = $_SESSION['current_page']-1;
+        } 
+    }
+    
+    $_SESSION['current_page'] = $page;
+    $page_start = ($page - 1) * $reviews_limit;
+    
+
     if(isset($_GET['selected_order'])){
         $selected_order = mysqli_real_escape_string($connection, $_GET['selected_order']);
 
@@ -41,8 +61,10 @@
             $selected_order = "AND stars = '5' Order by date_time_of_review DESC";
 
         }
+        # Query to get all reviews of the company
+        $company_id = $_SESSION['company_id'];
 
-        $query = "SELECT * FROM review where company_id = $company_id $selected_order";
+        $query = "SELECT * FROM review where company_id = $company_id $selected_order LIMIT $page_start, $reviews_limit";
         $result = mysqli_query($connection, $query);
 
         if($result && mysqli_num_rows($result) > 0){
