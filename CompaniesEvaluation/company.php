@@ -1,5 +1,7 @@
 <?php 
   require_once('session.php');
+  include("database_connect.php");
+  
 ?>
 
 <!Doctype html>
@@ -83,7 +85,7 @@
 
 
     <!--COMPANY REVIEWS-->
-    <section class="row mt-5 info-panel-hover-look">
+    <section class="row mt-5 info-panel-hover-look" id="reviews-id">
       <div class="col-12"> 
         <div class="row"> 
           <div class="col-12 info-header" >
@@ -91,9 +93,9 @@
           </div> 
         </div>
         <div class="row pt-3 info-content">
-          <div class="col-12 m-2 d-flex justify-content-end">
+          <div class="  col-12 m-2 mr-0 d-flex justify-content-end ">
             <p class="align-self-center m-0 mr-3" style="font-weight:500">Sort By:</p>
-            <select id="select_order_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
+            <select class="mr-3" id="select_order_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
               <option value="Recent">Recent</option>
               <option value="Most_Rated_First">Most Rated First</option>
               <option value="Least_Rated_First">Least Rated First</option>
@@ -104,12 +106,25 @@
               <option value="4_star">4 star</option>
               <option value="5_star">5 star</option>
             </select>
-            </div>
+            <p class="align-self-center m-0 mr-3" style="font-weight:500">Up To:</p>
+            <select id="select_limit_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
+              <option value="10">10 reviews</option>
+              <option value="20">20 reviews</option>
+              <option value="30">30 reviews</option>
+              <option value="40">40 reviews</option>
+              <option value="50">50 reviews</option>
+            </select>
           </div>
+        </div>
         <div class="row info-content"> 
           <div class=" col-12 mt-3" id="user-reviews-section">
             
           </div>
+          <!-- Pagination -->
+          <nav class=" col-12 d-flex justify-content-center " id="pagination-for-company-reviews">
+            
+          </nav>
+          <!--Pagination end-->
         </div>
       </div>
     </section> 
@@ -184,7 +199,6 @@
               </div>
                 
               <div class="row mb-2">
-                
                 <div class="col-12">
                   <div class="row"> 
                     <div class="col-12">
