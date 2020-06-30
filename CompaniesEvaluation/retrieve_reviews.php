@@ -128,13 +128,48 @@
                     echo '    <p>'.$row["review"].'</p>';
                     echo '  </div>';
                     echo '</div>';
-                     if($_SESSION['id'] == $userid){
+                    if($_SESSION['id'] == $userid){
                          echo '<div class="row">';
                          echo '  <div class=" col-xs-12 col-sm-3 offset-lg-9 offset-md-7 mb-2">';
                          echo '      <button class="mb-3 orange-btn-black-text-main" id="company-evaluation" onclick="on()"> Update Review </button>';
                          echo '  </div>';
                          echo '</div>';
                      }
+                    echo '<div class="row">';
+                    echo '  <div class=" col-xs-12 col-sm-3 offset-lg-9 offset-md-7 mb-2">';
+                    echo '      <button class="mb-3 orange-btn-black-text-main" id="company-evaluation" onclick="replyOn(';
+                    echo $row['review_id'];
+                    echo ')">Reply</button>';
+                    echo '  </div>';
+                    echo '</div><hr>';
+                    $id = $row['review_id'];
+                    $retriveReplies = "SELECT * FROM reply WHERE review_id = '$id'";
+                    if($replyResult = mysqli_query($connection, $retriveReplies)){
+                        if(mysqli_num_rows($replyResult) > 0){
+                            while($replies = mysqli_fetch_array($replyResult)){
+                                echo "<div class='row' style='margin-top:2%;margin-bottom:1%;'>";
+                                echo "<div class='col-1' style='background-color: #e7e6e6'></div>";
+                                echo "<div class='col-10' style='background-color:white;border-left: solid 3px #ffa801;'>";
+                                echo "<div class='row' style='background-Color: lightgray; padding-left:10px'><a>";
+                                echo $replies['date'];
+                                echo ", ";
+                                //get the user name (given the userID)
+                                $userID = $row['user_id'];
+                                $sql2 = "SELECT username FROM user WHERE id = '$userID'";
+                                if($result2 = mysqli_query($connection,$sql2)){
+                                    if(mysqli_num_rows($result2)>0){
+                                        $un = mysqli_fetch_row($result2);
+                                        $userName = $un[0];
+                                    }
+                                }
+                                echo $userName;
+                                echo "</a></div>";
+                                echo "<div class='row' style='background-Color: rgb(245, 245, 245); padding-top:2%; padding-left:10px'><a>";
+                                echo $replies['reply'];
+                                echo "</a></div></div></div>";
+                            }
+                        }
+                    }
                     echo '</div>';
                 }
             }

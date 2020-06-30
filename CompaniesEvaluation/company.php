@@ -237,6 +237,51 @@
     </section>
     <!--/MAIN EVALUATION SECTION--> 
     </section>
+    <section id="reply-contents">
+      <div class="container" id="reply-panel">
+        <!--CLOSE BUTTON-->
+        <div class="row">
+          <div class="col-1 offset-11">
+            <button onclick="off()" type="button" class="close mb-2 text-white" style="font-size:40px;" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <!--/CLOSE BUTTON-->
+
+        <div class="overlay-card">
+          <div class="row"> 
+            <div class="col-12 info-header" >
+              <h3 class="info-header-text mt-3 mb-2 ml-3">Reply</h3>
+            </div> 
+          </div>
+          <div class="row overlay-contents .info-content p-3 mt-0">
+            <div class="col-12">
+              <a id="error-message" class="bg-danger p-3 mb-2" style="display:none; color: whitesmoke; font-weight: bold;">Please fill the empty fields</a>
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="row"> 
+                    <div class="col-12">
+                      <label class="reply-panel-labels" for="reply">Reply:</label>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-12">
+                      <textarea name="reply" id="reply" cols="30" rows="10" style="width:100%"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3 offset-9 offset-xs-5">
+                  <button name="submit-button" class="orange-btn-black-text-main" id="submit-button" onclick="submitReply()"> Submit Reply </button>
+                </div>
+              </div>
+            </div>
+          </div><!--Overlay contents end-->
+        </div><!--Overlaycard end-->
+      </div>  
+    </section>
   <!-- /MAIN CONTAINER -->
 
   <!-- FOOTER -->
