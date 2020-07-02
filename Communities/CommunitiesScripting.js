@@ -218,3 +218,7 @@ function sendTheMessage(){
         }
     }
 }
+
+function goToEvents(){
+    location.href="../Events/events.php";
+}
