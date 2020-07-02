@@ -79,13 +79,20 @@ function addCommunity(){
         }
     }
     else{
-        xml = new XMLHttpRequest();
-        xml.open("GET","addCommunity.php?communityName="+communityName+"&communityDescription="+communityDescription+"&category="+category+"&availability="+availability,true);
-        xml.send();
+        community_name_syntax = new RegExp("^([A-za-z]+[0-9]*)*$");
+        console.log(community_name_syntax.test(communityName));
+        if(!community_name_syntax.test(communityName) ){
+            document.getElementById("community-name").style.borderColor="red";
+        }
+        else{
+            xml = new XMLHttpRequest();
+            xml.open("GET","addCommunity.php?communityName="+communityName+"&communityDescription="+communityDescription+"&category="+category+"&availability="+availability,true);
+            xml.send();
 
-        xml.onreadystatechange=function(){
-            if(xml.readyState==4){
-                alert(xml.responseText);
+            xml.onreadystatechange=function(){
+                if(xml.readyState==4){
+                    alert(xml.responseText);
+                }
             }
         }
     }
@@ -217,4 +224,10 @@ function sendTheMessage(){
             alert(xml.responseText);
         }
     }
+}
+
+// LINK TO SHARED FILES FOR EACH COMMUNITY
+function communitySharedFiles(){
+    xml.open("GET","../Drive/sharedfiles.php",true);
+    xml.send();
 }
