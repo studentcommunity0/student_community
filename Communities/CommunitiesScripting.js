@@ -231,3 +231,6 @@ function communitySharedFiles(){
     xml.open("GET","../Drive/sharedfiles.php",true);
     xml.send();
 }
+function goToEvents(){
+    location.href="../Events/events.php";
+}

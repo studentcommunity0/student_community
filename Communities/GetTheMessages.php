@@ -30,11 +30,13 @@
         echo "<div class'row'>";
         if($creatorID == $userID){
             echo "<button class='btn' onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button>";
+            
             echo "<button class='btn' style='margin-left:3%; background-color:rgb(56, 148, 56); color:white; font-weight:bold' value='";
             echo $communityName;
             echo "' onclick='goToManagingPage(this.value)'>Manage Community</button></div></div></div><br>";
         }
         else{
+            echo "<button class='btn' onclick='goToEvents()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Show events</button>";
             echo "<button class='btn'onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button></div></div></div><br>";
         }
         echo "<a href='../Drive/sharedfiles.php'><button class='btn' onclick='communitySharedFiles()' style='background-color:#BC9051; color:white; font-weight:bold'>View Shared Files</button></a>";

@@ -1,8 +1,14 @@
 $(document).ready(function(){ 
-    
+
+    // generating pagination for the pages
+    let review_limit = $("#select_limit_reviews").val();
+    let link = "pagination.php?selected_order=Recent&review_limit="+review_limit;
+    $("#pagination-for-company-reviews").load(link);
 
     // Loading all reviews
-    $("#user-reviews-section").load("retrieve_reviews.php?selected_order=Recent");    
+    $("#user-reviews-section").load("retrieve_reviews.php?selected_order=Recent&page=1");  
+    
+    
     
     // Loading COMPANY RATING
     $("#company_rating").load("displayCompanyRating.php");  
@@ -116,14 +122,32 @@ function retrieve_reviews(){
     // Selects the order of the reviews
     let selected_order = $("#select_order_reviews").val();
     console.log(selected_order);
-    
+    let review_limit = $("#select_limit_reviews").val();
+
+    let link = "pagination.php?review_limit="+review_limit+"&selected_order="+selected_order;
+    $("#pagination-for-company-reviews").replaceWith($("#pagination-for-company-reviews").load(link)); 
+
+
     // Loads the review in the selected order via GET
-    let link ="retrieve_reviews.php?selected_order="+selected_order;
+    link ="retrieve_reviews.php?selected_order="+selected_order+"&review_limit="+review_limit;
     console.log(link)
     $("#user-reviews-section").replaceWith($("#user-reviews-section").load(link)); 
     
 }
 
+function retrieve_reviews_via_pagination(page){
+    let selected_order = $("#select_order_reviews").val();
+    let review_limit = $("#select_limit_reviews").val();
+
+    console.log(review_limit);
+    page=  page.getAttribute('id');
+    console.log(page);
+    
+    let link = "retrieve_reviews.php?selected_order="+selected_order+"&page="+page+"&review_limit="+review_limit;
+    $("#user-reviews-section").replaceWith($("#user-reviews-section").load(link)); 
+
+    
+}
 
 function setRating(ev){
     let span = ev.currentTarget;
@@ -153,5 +177,27 @@ function on(){
 
 function off(){
     document.getElementById("review-contents").style.display= "none";
+    document.getElementById("reply-contents").style.display= "none";
+}
+
+var reviewID;
+function replyOn(id){
+    reviewID = id;
+    document.getElementById("reply-contents").style.display= "Block";
+}
+
+function submitReply(){
+    var reply = document.getElementById("reply").value;
+    alert(reply)
+    alert(reviewID)
+    
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendReply.php?reply="+reply+"&reviewID="+reviewID, true);
+    xml.send();
+    xml.onreadystatechange = function(){
+        if(xml.readyState == 4){
+            alert(xml.responseText);
+        }
+    }
 }
 
