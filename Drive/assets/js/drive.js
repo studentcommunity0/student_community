@@ -29,7 +29,12 @@ $(document).ready(function(){
     
     // Download all files in the community
     $("#download-all-community-shared-files").on('click', function(){
-        window.location.href ="download_all_files.php";
+      $.ajax({
+            url: 'download_all_files.php',
+            success: function(response){
+                alert(response)
+            }   
+        });
     });
    
     // run file search function when user hits enter on input

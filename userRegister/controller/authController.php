@@ -160,6 +160,7 @@ if(isset($_GET['logout'])){
     unset($_SESSION['username']);
     unset($_SESSION['email']);
     unset($_SESSION['verified']);
+    session_unset();
     header("Location: ../userRegister/login.php");
 }
 

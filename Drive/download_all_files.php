@@ -48,5 +48,6 @@
     }else{
         $status_msg = "did not work";
     }
+  echo $status_msg;
 
 ?>
