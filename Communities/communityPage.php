@@ -29,6 +29,7 @@
      <div>
             <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
         </div>
+       
         <div id="main" style="text-align:center">
         </div>
         <div class="myCard" id="message-textarea">

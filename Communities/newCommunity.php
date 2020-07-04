@@ -30,6 +30,7 @@
             <hr>
             <form action="addNewCompany.php" id="add-company-form" style="margin-left: 5%; margin-right: 5%;">
                 <div class="form-group">
+                  <a id="info-message" class="bg-dark p-3 mb-2" style="display:block; color: whitesmoke; font-size: 13px; font-weight: bold;">Community names can have Letters, numbers & whitspaces..</a>
                   <label for="exampleFormControlInput1" style="font-weight: bold;">Community Name:</label>
                   <input type="text" class="form-control" id="community-name">
                 </div>
