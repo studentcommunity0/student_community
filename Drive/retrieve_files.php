@@ -115,7 +115,7 @@
                     }
                 }
             }else{
-                die(mysqli_error());
+
                 $status_msg = "Could not find community in the drive";
             }
     }
