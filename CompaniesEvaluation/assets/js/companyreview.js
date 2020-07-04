@@ -177,5 +177,27 @@ function on(){
 
 function off(){
     document.getElementById("review-contents").style.display= "none";
+    document.getElementById("reply-contents").style.display= "none";
+}
+
+var reviewID;
+function replyOn(id){
+    reviewID = id;
+    document.getElementById("reply-contents").style.display= "Block";
+}
+
+function submitReply(){
+    var reply = document.getElementById("reply").value;
+    alert(reply)
+    alert(reviewID)
+    
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendReply.php?reply="+reply+"&reviewID="+reviewID, true);
+    xml.send();
+    xml.onreadystatechange = function(){
+        if(xml.readyState == 4){
+            alert(xml.responseText);
+        }
+    }
 }
 
