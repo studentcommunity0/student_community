@@ -30,7 +30,7 @@ body{
 }
 
 .orange-text-black-bg{
-    background-color:#3d3d3d !important; 
+    background-color:#3d3d3d !important;
     color:#ffa801 !important;
 }
 
@@ -57,4 +57,33 @@ body{
     transition:  .5s ease;
     box-shadow: none;
     border: none;
+}
+/* SMALL BUTTONS THEME */
+.orange-btn-black-text-small{
+    width: 50px;
+    height: 50px;
+    color: #3d3d3d;
+    font-weight: 647;
+    background-color: #ff9e01;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border:none;
+    outline: none;
+    cursor:pointer;
+    margin-left:5px;
+    margin-right: 5px;
+    
+}
+
+.orange-btn-black-text-small:hover {
+    transition:  .5s ease;
+    box-shadow: none;
+    border: none;
+    color: #ff9e01;
+    background-color: #3d3d3d;
+}
+
+/* LINKS formatiing */
+a{
+    text-decoration: none;
+    color: #ff9e01;
 }

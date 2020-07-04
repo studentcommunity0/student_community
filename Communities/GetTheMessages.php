@@ -39,6 +39,7 @@
             echo "<button class='btn' onclick='goToEvents()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Show events</button>";
             echo "<button class='btn'onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button></div></div></div><br>";
         }
+        echo "<a href='../Drive/sharedfiles.php'><button class='btn' onclick='communitySharedFiles()' style='background-color:#BC9051; color:white; font-weight:bold'>View Shared Files</button></a>";
         if(mysqli_num_rows($result1)>0){
             while($rows=mysqli_fetch_array($result1)){
                 echo "<div class='row' style='margin:2%; border-top:solid 3px #e2ac60; background-color:white;box-shadow: 0px 0px 2px black;'>";
