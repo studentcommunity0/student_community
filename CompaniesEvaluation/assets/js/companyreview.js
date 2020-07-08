@@ -188,8 +188,6 @@ function replyOn(id){
 
 function submitReply(){
     var reply = document.getElementById("reply").value;
-    alert(reply)
-    alert(reviewID)
     
     xml = new XMLHttpRequest();
     xml.open("GET","sendReply.php?reply="+reply+"&reviewID="+reviewID, true);

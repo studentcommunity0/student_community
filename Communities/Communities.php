@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="CommunitiesStyling.css">
         <link rel="stylesheet" href="../assets/css/maintheme.css">
         <link rel="stylesheet" href="../assets/css/sidenavbar.css">
@@ -31,17 +31,16 @@
             <div class="row" style="background-color: #24313e; margin-right: 2%; margin-left: 2%; padding-left: 3%;">
                 <h4 style="color: white;">My Communities</h4>
             </div>
-            <div class="row myCard2">
-                <div class="col">
-                    <form class="form-inline md-form mr-auto mb-4">
-                        <button class="btn search-btn" onclick="searchMyCommunities()" type="button">
-                            <i class="material-icons">search</i>
-                        </button>
-                        <input class="form-control mr-sm-2" id ="myCommunities-search-input" style="width: 60%; background-color: beige;" type="text" placeholder="Search" onchange="search()" aria-label="Search">
-                        <button class="btn join-btn" type="button" onclick="goToAddCommunity()">Add a new community</button>
-                        <button class="btn join-btn" style="margin-left: 1%;" type="button" onclick="browseCommunities()">Join a community</button>
-                    </form>
+            <div class="row myCard2 center">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <button class="btn join-btn" type="button" onclick="getCommuniteis()">My communities</button>
+                    <button class="btn join-btn" type="button" onclick="getAllCommuniteis()">all communities</button>
+                    
+                    <button class="btn join-btn" style="margin-left: 1%; background-color:green" type="button" onclick="goToShop()">
+                    <i class="material-icons">shopping_basket</i></button> <a style="font-weight:bold">Items shop</a>
                 </div>
+                <div class="col-3"></div>
             </div>
                 <div class="col myCard" id="myCommunities">
                 </div>

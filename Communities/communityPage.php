@@ -32,7 +32,16 @@
        
         <div id="main" style="text-align:center">
         </div>
+        <div class="myCard" id="reply-textarea">
+            <strong>REPLY</strong><br>
+            <textarea name="editor2" id="editor2"></textarea>
+            <script>
+                    CKEDITOR.replace( 'editor2' );
+            </script>
+            <button class='btn' onclick="sendTheReply()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send Reply-></button>
+        </div>
         <div class="myCard" id="message-textarea">
+            <strong>NEW MESSAGE</strong><br>
             <textarea name="editor1" id="editor1"></textarea>
             <script>
                     CKEDITOR.replace( 'editor1' );

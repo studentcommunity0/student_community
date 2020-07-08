@@ -29,6 +29,7 @@
         echo "<div class='row myCard'><div class='col'><h1> Welcome to $communityName community</1>";
         echo "<div class'row'>";
         if($creatorID == $userID){
+            echo "<button class='btn' onclick='goToEvents()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Show events</button>";
             echo "<button class='btn' onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button>";
             
             echo "<button class='btn' style='margin-left:3%; background-color:rgb(56, 148, 56); color:white; font-weight:bold' value='";
@@ -65,9 +66,46 @@
                 echo "<div class='row' style='background-Color: lightgray; padding-left:10px'><a>";
                 echo $rows['date'];
                 echo "</a></div>";
-                echo "<div class='row' style='background-Color: white; padding-top:2%; padding-left:10px'><a>";
+                echo "<div class='row' style='background-Color: white; height:75%; padding-top:2%; padding-left:10px'><a>";
                 echo $rows['message'];
-                echo "</a></div></div></div>";
+                echo "</a></div>";
+                echo "<button class='btn' style='background-color:#BC9051; color:white; font-weight:bold' onclick='showReplyArea(";
+                echo $rows['id'];
+                echo ")'>Reply</button><hr>";
+                echo "</div>";
+                echo "<div class='col-2' style='background-color:lightgray'></div>";
+                echo "<div class='col-10' style=''>";
+                $id = $rows['id'];
+                $sql2 = "SELECT * FROM communities_replies WHERE message_id = '$id'";
+                if($replyResult = mysqli_query($connection, $sql2)){
+                    if(mysqli_num_rows($replyResult)>0){
+                        while($replies = mysqli_fetch_array($replyResult)){
+                            echo "<div class='row' style='margin-top:2%;margin-bottom:1%;'>";
+                            echo "<div class='col-1' style='background-color: '></div>";
+                            echo "<div class='col-10' style='background-color:white;border-left: solid 3px #ffa801;'>";
+                            echo "<div class='row' style='background-Color: lightgray; padding-left:10px'><a>";
+                            echo $replies['date'];
+                            echo ", ";
+                            //get the user name (given the userID)
+                            $userID = $replies['userid'];
+                            $userName;
+                            $sql2 = "SELECT username FROM user WHERE id = '$userID'";
+                            if($result2 = mysqli_query($connection,$sql2)){
+                                if(mysqli_num_rows($result2)>0){
+                                    $un = mysqli_fetch_row($result2);
+                                    $userName = $un[0];
+                                }
+                            }
+                            echo $userName;
+                            echo "</a></div>";
+                            echo "<div class='row' style='background-Color: rgb(245, 245, 245); padding-top:2%; padding-left:10px'><a>";
+                            echo $replies['reply'];
+                            echo "</a></div></div></div>";
+                        }
+                    }
+                }
+                echo "</div>";
+                echo "</div>";
             }
         }
         else{
