@@ -154,7 +154,7 @@
                                 echo $replies['date'];
                                 echo ", ";
                                 //get the user name (given the userID)
-                                $userID = $row['user_id'];
+                                $userID = $replies['user_id'];
                                 $sql2 = "SELECT username FROM user WHERE id = '$userID'";
                                 if($result2 = mysqli_query($connection,$sql2)){
                                     if(mysqli_num_rows($result2)>0){

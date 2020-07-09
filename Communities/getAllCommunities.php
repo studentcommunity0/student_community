@@ -7,6 +7,18 @@
     $sql = "SELECT * FROM community WHERE availability = 'public'";
     if($result = mysqli_query($connection,$sql)){
         if(mysqli_num_rows($result)>0){
+            echo "<div class='row myCard2'>";
+            echo "  <div class='col-12'>";
+            echo "      <form class='form-inline md-form mr-auto mb-4'>";
+            echo "          <button class='btn search-btn' onclick='allCommunitiesSearch()' type='button'>";
+            echo "              <i class='material-icons'>search</i>";
+            echo "          </button>";
+            echo "          <input class='form-control mr-sm-2' id ='allCommunities-search-input' style='width: 60%; background-color: beige;' type='text' placeholder='Searc' onchange='search()' aria-label='Search'>";
+            echo "      <button class='btn join-btn' type='button' onclick='goToAddCommunity()'>Add a new community</button>";
+            echo "      <button class='btn join-btn' style='margin-left: 1%;' type='button' onclick='goToPrivateCommunities()'>Join a private community</button>";
+            echo "      </form>";
+            echo "  </div>";
+            echo "</div><hr>";
             while($rows=mysqli_fetch_array($result)){
                 echo "<div class='row com'>";
                 echo "<div class='col-3'>";

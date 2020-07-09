@@ -1,3 +1,4 @@
+
 <?php
 
     require_once("../session.php");
@@ -48,6 +49,6 @@
     }else{
         $status_msg = "did not work";
     }
+  header("Location: sharedfiles.php?status=$status_msg");
 
-    header("Location: sharedfiles.php?status=$status_msg");
 ?>

@@ -15,8 +15,9 @@
                 $myCommunities = $myCommunities . "'" . $rows['community_name'] . "',";
             }
             $myCommunities = $myCommunities . "'q'";
-            //echo $myCommunities;
-            
+            //echo $myCommunities; 
+        }
+        else{
         }
     }
     else{
