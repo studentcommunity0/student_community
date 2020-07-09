@@ -2,7 +2,6 @@ function goToAddEvent(){
     location.href="newEvent.php";
 }
 
-
 function copy_page_link(){
     const url = new URL(location);
     let copy = url.href;
@@ -15,4 +14,3 @@ function copy_page_link(){
     fullLink.remove();
     alert(copy+"is copied to clipboard");
 }
-
