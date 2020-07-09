@@ -48,6 +48,6 @@
     }else{
         $status_msg = "did not work";
     }
-  echo $status_msg;
 
+    header("Location: sharedfiles.php?status=$status_msg");
 ?>
