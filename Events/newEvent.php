@@ -33,6 +33,13 @@
                 <textarea class="form-control" id="community-disc" rows="3" name="eventDesc"></textarea>
             </div>
             <div class="form-group">
+                <label for="exampleFormControlTextarea1" style="font-weight: bold;">Event Type</label><br>
+                <input type="radio" name="eventType" value="Online">
+                <label for="">Online</label>
+                <input type="radio" name="eventType" value="Physical">
+                <label for="">Physical</label><br>
+            </div>
+            <div class="form-group">
                 <label for="" style="font-weight: bold;">Date of event:</label><br>
                 <input type="date" id="" name="dateOfEvent">
             </div>
