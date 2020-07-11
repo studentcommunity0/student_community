@@ -9,7 +9,7 @@ if(mysqli_connect_errno()){
 
 $communityName = $_SESSION['community_name'];
 
-$sql = "SELECT * FROM events WHERE community = '$communityName' ORDER BY date_of_event ASC";
+$sql = "SELECT * FROM events WHERE community = '$communityName' ORDER BY date_of_event DESC";
 
 if($result = mysqli_query($connection,$sql)){
     if(mysqli_num_rows($result)>0){

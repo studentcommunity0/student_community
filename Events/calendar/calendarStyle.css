@@ -1,0 +1,105 @@
+#calendar_div{
+    background-color: rgb(226, 226, 226);
+    width: 1200px;
+    margin: 10px 10px;
+    margin: 0 auto;
+}
+
+.calendar-contain{
+    display: flex;
+}
+
+.title-bar{
+    background-color: rgb(182, 182, 182);
+    display: flex;
+}
+.title-bar div{
+    height: 50px;
+    padding-top: 12px;
+    margin-left: 20px;
+}
+
+.calendar__sidebar{
+    margin-left: 0px;
+}
+
+.calendar__top-bar{
+    margin-left: 115px;
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 30px ;
+    font-size: 15px;
+}
+
+.top-bar__days{
+    margin: 0px 50px 0px 15px;
+}
+
+.calendar__week{
+    display: flex;
+    margin-left: 110px;
+}
+
+.calendar__day{
+    width: 100px;
+    height: 100px;
+}
+
+.calendar__date{
+    font-size: 35px;
+}
+
+.today{
+    color: red;
+}
+
+.event{
+    color: cornflowerblue;
+}
+
+.sidebar__heading{
+    margin-top: 20px;
+}
+.sidebar__list-item--complete{
+    font-size: large;
+    font-weight: bolder;
+    list-style: none;
+    margin-bottom: 30px;
+    padding-left: 150px;
+}
+.sidebar__list-item--Notcomplete{
+    font-size: large;
+    font-weight: bolder;
+    list-style: none;
+    margin-bottom: 30px;
+    padding-left: 130px;
+}
+
+.sidebar__list-item{
+    list-style: none;
+    font-size: 20px;
+}
+
+.calendar__sidebar{
+    background-color: rgb(182, 182, 182);
+    width: 400px;
+}
+
+.sidebar__list{
+    text-align: left;
+    display: inline;
+}
+
+.eventBtn{
+	background:linear-gradient(to bottom, #ffa601 5%, #fb9e25 100%);
+	background-color:#ffa601;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 5px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffa601;
+}

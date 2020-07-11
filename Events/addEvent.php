@@ -18,12 +18,13 @@ if(isset($_POST['upload'])){
     $eventName = $_POST['eventName']; 
     $eventDescription = $_POST['eventDesc'];
     $dateOfEvent = $_POST['dateOfEvent'];
+    $eventType = $_POST['eventType'];
     // other data
     $eventCommunity = $_SESSION['community_name'];
     $dateAdded = date("Y/m/d");
 
     //insert image to the database
-    $sql = "INSERT INTO events (name,description,image,community,date_of_event,date_added) VALUES ('$eventName','$eventDescription','$image','$eventCommunity','$dateOfEvent','$dateAdded')";
+    $sql = "INSERT INTO events (name,description,image,community,date_of_event,date_added,type) VALUES ('$eventName','$eventDescription','$image','$eventCommunity','$dateOfEvent','$dateAdded','$eventType')";
     if(mysqli_query($connection, $sql)){
         echo "event added succefully";
     }

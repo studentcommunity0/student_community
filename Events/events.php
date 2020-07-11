@@ -23,6 +23,7 @@
     <div class="container" style="background-color: #3d3d3d; text-align: center;">
         <form class="form-inline md-form mb-4">
             <button class="btn join-btn" type="button" id="addNewEvent" onclick="goToAddEvent()">Add a new Event</button>
+            <button class="btn join-btn" type="button" id="addNewEvent" onclick="goToCalender()">Events calender</button>
         </form>
     </div>
     
