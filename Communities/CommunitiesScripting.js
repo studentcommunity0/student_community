@@ -37,11 +37,10 @@ function allCommunitiesSearch(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            document.getElementById("AllCommunities").innerHTML=xml.responseText;
+            document.getElementById("myCommunities").innerHTML=xml.responseText;
         }
     }
 }
-
 
 
 var Availability="public";
@@ -95,13 +94,10 @@ function getAllCommuniteis(){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-
-            document.getElementById("AllCommunities").innerHTML=xml.responseText;
+            document.getElementById("myCommunities").innerHTML=xml.responseText;
         }
     }
 }
-
-
 function getCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getMyCommunities.php",true);
@@ -158,7 +154,6 @@ function joinPrivateCommunities(){
 
 function communityPageStart(){
     $("#message-textarea").hide();
-
     $("#reply-textarea").hide();
     xml = new XMLHttpRequest();
     xml.open("GET","GetTheMessages.php",true);
@@ -208,7 +203,6 @@ function showTexrarea(){
     location.href="#message-textarea";
     $("#message-textarea").fadeToggle(1000);
 }
-
 var MID;
 function showReplyArea(id){
     location.href="#reply-textarea";
@@ -238,7 +232,6 @@ function sendTheMessage(){
     }
 }
 
-
 function reply(id){
     var divid= "ta"+id;
     alert(document.getElementById("divid").innerHTML)
@@ -257,7 +250,6 @@ function sendTheReply(){
         }
     }
 }
-
 // LINK TO SHARED FILES FOR EACH COMMUNITY
 function communitySharedFiles(){
     xml.open("GET","../Drive/sharedfiles.php",true);
@@ -270,4 +262,3 @@ function goToEvents(){
 function goToShop(){
     location.href="../Shop/shop.php";
 }
-
