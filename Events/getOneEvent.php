@@ -31,6 +31,9 @@ if($result = mysqli_query($connection,$sql)){
                 echo "<div class='col-9' id='eventFlyerSingle'>";
                     echo "<img src='flyerImages/$image'>";
                 echo "</div>";
+		echo "<div class='col-2'>";
+                	echo "<button class='orange-btn-black-text-main' style='width:130px;' onclick='copy_page_link()'> Share </button>";
+                echo "</div>";
             echo "</div>";
         }
     }

@@ -1,0 +1,23 @@
+.all-contents-holder{
+    width:95%;
+
+}
+
+.files-info-p{
+    word-wrap:break-word;
+}
+
+#file-details-id{
+    background: #f3f1f1;
+
+}
+.file-details-main{
+    padding-left:25px !important;
+    padding-right:25px !important;
+}
+.search-bar{
+    height: 50px;
+}
+#file-to-upload{
+    width:100px;
+}

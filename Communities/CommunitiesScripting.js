@@ -42,17 +42,7 @@ function allCommunitiesSearch(){
     }
 }
 
-function getCommuniteis(){
-    xml = new XMLHttpRequest();
-    xml.open("GET","getMyCommunities.php",true);
-    xml.send();
 
-    xml.onreadystatechange=function(){
-        if(xml.readyState==4){
-            document.getElementById("myCommunities").innerHTML=xml.responseText;
-        }
-    }
-}
 
 var Availability="public";
 var Category = "University";
@@ -105,11 +95,24 @@ function getAllCommuniteis(){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
+
             document.getElementById("AllCommunities").innerHTML=xml.responseText;
         }
     }
 }
 
+
+function getCommuniteis(){
+    xml = new XMLHttpRequest();
+    xml.open("GET","getMyCommunities.php",true);
+    xml.send();
+
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            document.getElementById("myCommunities").innerHTML=xml.responseText;
+        }
+    }
+}
 
 function joinCommunity(com){
     var communityName = com;
@@ -155,6 +158,8 @@ function joinPrivateCommunities(){
 
 function communityPageStart(){
     $("#message-textarea").hide();
+
+    $("#reply-textarea").hide();
     xml = new XMLHttpRequest();
     xml.open("GET","GetTheMessages.php",true);
     xml.send();
@@ -203,6 +208,13 @@ function showTexrarea(){
     location.href="#message-textarea";
     $("#message-textarea").fadeToggle(1000);
 }
+
+var MID;
+function showReplyArea(id){
+    location.href="#reply-textarea";
+    $("#reply-textarea").fadeToggle(1000);
+    MID = id;
+}
 function setMessageToSession(){
     var TextareaInput = encodeURIComponent(CKEDITOR.instances.editor1.getData());
     xml = new XMLHttpRequest();
@@ -226,6 +238,26 @@ function sendTheMessage(){
     }
 }
 
+
+function reply(id){
+    var divid= "ta"+id;
+    alert(document.getElementById("divid").innerHTML)
+    document.getElementById("divid").style.visibility = "visible";
+}
+
+function sendTheReply(){
+    var TextareaInput = encodeURIComponent(CKEDITOR.instances.editor2.getData());
+    var messageID = MID
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendReply.php?TextareaInput="+TextareaInput+"&messageID="+messageID,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            alert(xml.responseText);
+        }
+    }
+}
+
 // LINK TO SHARED FILES FOR EACH COMMUNITY
 function communitySharedFiles(){
     xml.open("GET","../Drive/sharedfiles.php",true);
@@ -234,3 +266,8 @@ function communitySharedFiles(){
 function goToEvents(){
     location.href="../Events/events.php";
 }
+
+function goToShop(){
+    location.href="../Shop/shop.php";
+}
+

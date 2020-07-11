@@ -134,11 +134,21 @@ if (isset($_POST['loginBtn'])){
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['verified'] = $user['verified'];
+            $_SESSION['user_type'] = $user['user_type'];
             //if user is not verified then go to index
             if($_SESSION['verified'] == 0){
                 header("Location: ../userRegister/index.php");
             }else{
-                header("Location: ../CompaniesEvaluation/HomePage.php");
+                if($user['status'] == 5){
+                    header('Location: ../user_blocked.php');
+                    session_unset();
+                }else{
+                    if($user['user_type'] == 1){
+                        header("Location: ../Admin/");
+                    }else{
+                        header("Location: ../CompaniesEvaluation/HomePage.php");
+                    }
+                }
             }
             
 
@@ -160,6 +170,7 @@ if(isset($_GET['logout'])){
     unset($_SESSION['username']);
     unset($_SESSION['email']);
     unset($_SESSION['verified']);
+    session_unset();
     header("Location: ../userRegister/login.php");
 }
 
