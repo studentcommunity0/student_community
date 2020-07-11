@@ -77,6 +77,7 @@ function getCalender($year = '', $month = ''){
             <?php  
                 $dayCount = 1; 
                 $eventNum = 0; 
+                $communityName = $_SESSION['community_name'];
                  
                 echo '<section class="calendar__week">'; 
                 for($cb=1;$cb<=$boxDisplay;$cb++){ 
@@ -86,7 +87,7 @@ function getCalender($year = '', $month = ''){
                         
                         // Get number of events based on the current date 
                         global $db; 
-                        $result = $db->query("SELECT name FROM events WHERE date_of_event = '".$currentDate."'"); 
+                        $result = $db->query("SELECT name FROM events WHERE date_of_event = '".$currentDate."' AND community = '$communityName'"); 
                         $eventNum = $result->num_rows; 
                          
                         // Define date cell color 
@@ -208,14 +209,16 @@ function getYearList($selected = ''){
 /* 
  * Generate events list in HTML format 
  */ 
+
 function getEvents($date = ''){ 
     $date = $date?$date:date("Y-m-d"); 
+    $communityName = $_SESSION['community_name'];
      
     $eventListHTML = '<h2 class="sidebar__heading">'.date("l", strtotime($date)).'<br>'.date("F d", strtotime($date)).'</h2>'; 
 
     // Fetch events based on the specific date 
     global $db; 
-    $result = $db->query("SELECT * FROM events WHERE date_of_event = '".$date."'"); 
+    $result = $db->query("SELECT * FROM events WHERE date_of_event = '".$date."' AND community = '$communityName'"); 
     if($result->num_rows > 0){ 
         $eventListHTML .= '<hr>'; 
         $eventListHTML .= '<ul class="sidebar__list">'; 
