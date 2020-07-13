@@ -1,5 +1,7 @@
 <?php 
   require_once('session.php');
+  include("database_connect.php");
+  
 ?>
 
 <!Doctype html>
@@ -83,7 +85,7 @@
 
 
     <!--COMPANY REVIEWS-->
-    <section class="row mt-5 info-panel-hover-look">
+    <section class="row mt-5 info-panel-hover-look" id="reviews-id">
       <div class="col-12"> 
         <div class="row"> 
           <div class="col-12 info-header" >
@@ -91,9 +93,9 @@
           </div> 
         </div>
         <div class="row pt-3 info-content">
-          <div class="col-12 m-2 d-flex justify-content-end">
+          <div class="  col-12 m-2 mr-0 d-flex justify-content-end ">
             <p class="align-self-center m-0 mr-3" style="font-weight:500">Sort By:</p>
-            <select id="select_order_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
+            <select class="mr-3" id="select_order_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
               <option value="Recent">Recent</option>
               <option value="Most_Rated_First">Most Rated First</option>
               <option value="Least_Rated_First">Least Rated First</option>
@@ -104,12 +106,25 @@
               <option value="4_star">4 star</option>
               <option value="5_star">5 star</option>
             </select>
-            </div>
+            <p class="align-self-center m-0 mr-3" style="font-weight:500">Up To:</p>
+            <select id="select_limit_reviews" style="background-color:#3d3d3d; color:#ffa801; width:190px; height:40px;" onchange="retrieve_reviews()">
+              <option value="10">10 reviews</option>
+              <option value="20">20 reviews</option>
+              <option value="30">30 reviews</option>
+              <option value="40">40 reviews</option>
+              <option value="50">50 reviews</option>
+            </select>
           </div>
+        </div>
         <div class="row info-content"> 
           <div class=" col-12 mt-3" id="user-reviews-section">
             
           </div>
+          <!-- Pagination -->
+          <nav class=" col-12 d-flex justify-content-center " id="pagination-for-company-reviews">
+            
+          </nav>
+          <!--Pagination end-->
         </div>
       </div>
     </section> 
@@ -184,7 +199,6 @@
               </div>
                 
               <div class="row mb-2">
-                
                 <div class="col-12">
                   <div class="row"> 
                     <div class="col-12">
@@ -222,6 +236,51 @@
       </div>  
     </section>
     <!--/MAIN EVALUATION SECTION--> 
+    </section>
+    <section id="reply-contents">
+      <div class="container" id="reply-panel">
+        <!--CLOSE BUTTON-->
+        <div class="row">
+          <div class="col-1 offset-11">
+            <button onclick="off()" type="button" class="close mb-2 text-white" style="font-size:40px;" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <!--/CLOSE BUTTON-->
+
+        <div class="overlay-card">
+          <div class="row"> 
+            <div class="col-12 info-header" >
+              <h3 class="info-header-text mt-3 mb-2 ml-3">Reply</h3>
+            </div> 
+          </div>
+          <div class="row overlay-contents .info-content p-3 mt-0">
+            <div class="col-12">
+              <a id="error-message" class="bg-danger p-3 mb-2" style="display:none; color: whitesmoke; font-weight: bold;">Please fill the empty fields</a>
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="row"> 
+                    <div class="col-12">
+                      <label class="reply-panel-labels" for="reply">Reply:</label>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-12">
+                      <textarea name="reply" id="reply" cols="30" rows="10" style="width:100%"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3 offset-9 offset-xs-5">
+                  <button name="submit-button" class="orange-btn-black-text-main" id="submit-button" onclick="submitReply()"> Submit Reply </button>
+                </div>
+              </div>
+            </div>
+          </div><!--Overlay contents end-->
+        </div><!--Overlaycard end-->
+      </div>  
     </section>
   <!-- /MAIN CONTAINER -->
 
