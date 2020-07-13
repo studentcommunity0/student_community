@@ -2,6 +2,11 @@ function goToAddEvent(){
     location.href="newEvent.php";
 }
 
+function goToCalender(){
+    location.href="calendar/calendar.php";
+}
+
+
 function copy_page_link(){
     const url = new URL(location);
     let copy = url.href;
@@ -13,4 +18,5 @@ function copy_page_link(){
     document.execCommand("copy", false);
     fullLink.remove();
     alert(copy+"is copied to clipboard");
+
 }
