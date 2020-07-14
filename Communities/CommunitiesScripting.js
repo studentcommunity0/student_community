@@ -262,3 +262,7 @@ function goToEvents(){
 function goToShop(){
     location.href="../Shop/shop.php";
 }
+
+function goToPolls(){
+    location.href ="../polling_system/all_polls_page.php";
+}
