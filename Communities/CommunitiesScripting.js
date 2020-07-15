@@ -43,7 +43,6 @@ function allCommunitiesSearch(){
 }
 
 
-
 var Availability="public";
 var Category = "University";
 function setAvailability(A){
@@ -60,7 +59,7 @@ function addCommunity(){
     var communityDescription = document.getElementById("community-disc").value;
 
     if(communityName=="" || communityDescription==""){
-        //document,getElementById("community-error-message").style.visibility = "";
+        document.getElementById("community-error-message").style.visibility = "";
         if(communityName==""){
             document.getElementById("community-name").style.borderColor="red";
         }
@@ -70,8 +69,8 @@ function addCommunity(){
     }
     else{
         community_name_syntax = new RegExp("^([A-za-z]+[0-9]*)*$");
-        console.log(community_name_syntax.test(communityName));
-        if(!community_name_syntax.test(communityName) ){
+        console.log(!community_name_syntax.test(communityName));
+        if(community_name_syntax.test(communityName) ){
             document.getElementById("community-name").style.borderColor="red";
         }
         else{
@@ -99,7 +98,6 @@ function getAllCommuniteis(){
         }
     }
 }
-
 function getCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getMyCommunities.php",true);
@@ -134,12 +132,12 @@ function leaveCommunity(com){
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
             alert(xml.responseText);
+            location.href= 'http://localhost/StudentCommunity/Communities/communities.php';
         }
     }
 }
 
 function joinPrivateCommunities(){
-    
     var communityName = document.getElementById("private-community-name").value;
     var communityID = document.getElementById("private-community-id").value;
 
@@ -157,6 +155,7 @@ function joinPrivateCommunities(){
 function communityPageStart(){
     $("#message-textarea").hide();
     $("#reply-textarea").hide();
+    
     xml = new XMLHttpRequest();
     xml.open("GET","GetTheMessages.php",true);
     xml.send();
@@ -197,6 +196,7 @@ function removePart(id){
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
             alert(xml.responseText);
+            location.href= "http://localhost/StudentCommunity/Communities/communityManagementPage.php";
         }
     }
 }
@@ -205,7 +205,6 @@ function showTexrarea(){
     location.href="#message-textarea";
     $("#message-textarea").fadeToggle(1000);
 }
-
 var MID;
 function showReplyArea(id){
     location.href="#reply-textarea";
@@ -231,10 +230,10 @@ function sendTheMessage(){
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
             alert(xml.responseText);
+            location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
         }
     }
 }
-
 
 function reply(id){
     var divid= "ta"+id;
@@ -251,10 +250,42 @@ function sendTheReply(){
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
             alert(xml.responseText);
+            location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
         }
     }
 }
 
+function sendInvitation(com){
+    var recipientEmail = document.getElementById('invite-input').value;
+    var communityName = com;
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendInvetation.php?recipientEmail="+recipientEmail+"&communityName="+communityName,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            alert(xml.responseText);
+        }
+    }
+}
+
+function goToInvitationPage(){
+    location.href="myInvitations.php";
+}
+
+function removeFromIvitation(communityName){
+    xml = new XMLHttpRequest();
+    xml.open("GET","removeFromIvitation.php?communityName="+communityName,true);
+    xml.send();
+    alert("The invitation ignored");
+    location.href('http://localhost/StudentCommunity/Communities/myInvitations.php')
+}
+
+function acceptInvitation(community){
+    joinCommunity(community);
+    removeFromIvitation(community);
+    alert("The invitation accepted");
+    location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
+}
 // LINK TO SHARED FILES FOR EACH COMMUNITY
 function communitySharedFiles(){
     xml.open("GET","../Drive/sharedfiles.php",true);
@@ -268,12 +299,6 @@ function goToShop(){
     location.href="../Shop/shop.php";
 }
 
-
-function goToUniversities(){
-    location.href="../university/university.php";
-}
-
 function goToPolls(){
     location.href ="../polling_system/all_polls_page.php";
-
 }
