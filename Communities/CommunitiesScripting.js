@@ -100,7 +100,6 @@ function getAllCommuniteis(){
     }
 }
 
-
 function getCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getMyCommunities.php",true);
@@ -269,6 +268,11 @@ function goToShop(){
     location.href="../Shop/shop.php";
 }
 
+
 function goToUniversities(){
     location.href="../university/university.php";
+
+function goToPolls(){
+    location.href ="../polling_system/all_polls_page.php";
+
 }

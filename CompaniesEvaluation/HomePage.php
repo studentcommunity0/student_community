@@ -2,6 +2,7 @@
 
 require_once('../userRegister/controller/authController.php');
 
+
 // if the user is not signed in
 if(!isset($_SESSION['id'])){
     header("Location: ../userRegister/login.php");
@@ -30,7 +31,7 @@ if(!isset($_SESSION['id'])){
         <!-- <div>
             <img src="images/HP.jpg" style="width: 100%;" alt="Image">
         </div> -->
-        
+
         <div class="separator" style="padding: 2%;">Companies Evaluations</div>
         <div class="row" style="margin-left:2%; margin-right: 2%; margin: 1%;" id="HP-companies">  
         </div>

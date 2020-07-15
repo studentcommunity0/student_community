@@ -156,6 +156,7 @@ if (isset($_POST['loginBtn'])){
                         header("Location: ../Admin/");
                     }else{
                         header("Location: ../userRegister/index.php");
+
                     }
                 }
             }
