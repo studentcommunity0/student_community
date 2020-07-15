@@ -40,6 +40,26 @@ require_once('controller/authController.php');
             </div>
 
             <div class="form-group">
+                <label for="">University</label>
+                <select name="userUniversity" id="">
+                    <option selected="true" disabled="disabled">select</option>
+                    <?php
+                        $sql = mysqli_query($db, "SELECT name From university");
+                        $row = mysqli_num_rows($sql);
+                        while ($row = mysqli_fetch_array($sql)){
+                        echo "<option value='". $row['name'] ."'>" .$row['name'] ."</option>" ;
+                        }
+                    ?>
+                </select>
+                
+            </div>
+
+            <div class="form-group">
+                <label for="">Major</label>
+                <input type="" class="form-control" value="" name="userMajor">
+            </div>
+
+            <div class="form-group">
                 <label for="">Password</label>
                 <input type="password" class="form-control" id="" name="userPassword1">
             </div>

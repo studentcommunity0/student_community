@@ -43,6 +43,7 @@ function allCommunitiesSearch(){
 }
 
 
+
 var Availability="public";
 var Category = "University";
 function setAvailability(A){
@@ -98,6 +99,7 @@ function getAllCommuniteis(){
         }
     }
 }
+
 function getCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getMyCommunities.php",true);
@@ -203,6 +205,7 @@ function showTexrarea(){
     location.href="#message-textarea";
     $("#message-textarea").fadeToggle(1000);
 }
+
 var MID;
 function showReplyArea(id){
     location.href="#reply-textarea";
@@ -232,6 +235,7 @@ function sendTheMessage(){
     }
 }
 
+
 function reply(id){
     var divid= "ta"+id;
     alert(document.getElementById("divid").innerHTML)
@@ -250,6 +254,7 @@ function sendTheReply(){
         }
     }
 }
+
 // LINK TO SHARED FILES FOR EACH COMMUNITY
 function communitySharedFiles(){
     xml.open("GET","../Drive/sharedfiles.php",true);
@@ -263,6 +268,11 @@ function goToShop(){
     location.href="../Shop/shop.php";
 }
 
+
+function goToUniversities(){
+    location.href="../university/university.php";
+
 function goToPolls(){
     location.href ="../polling_system/all_polls_page.php";
+
 }
