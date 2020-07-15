@@ -2,11 +2,6 @@
 
 require_once('../userRegister/controller/authController.php');
 
-// if the user clicked on the email he will have a token
-if (isset($_GET['token'])){
-    $token = $_GET['token'];
-    verifyUser($token);
-}
 
 // if the user is not signed in
 if(!isset($_SESSION['id'])){
@@ -36,15 +31,7 @@ if(!isset($_SESSION['id'])){
         <!-- <div>
             <img src="images/HP.jpg" style="width: 100%;" alt="Image">
         </div> -->
-        <?php if(isset($_SESSION['verifyMessage'])) :?>
-            <div class="alert alert-success">
-                <b><?php 
-                        echo $_SESSION['verifyMessage'];
-                        unset($_SESSION['verifyMessage']);
-                    ?>
-                </b>
-            </div>
-        <?php endif;?>
+
         <div class="separator" style="padding: 2%;">Companies Evaluations</div>
         <div class="row" style="margin-left:2%; margin-right: 2%; margin: 1%;" id="HP-companies">  
         </div>

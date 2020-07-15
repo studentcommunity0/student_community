@@ -29,38 +29,54 @@
             <img src="images/SHI.jpg" style="width: 100%;" alt="Image">
         </div>
             <div class="row" style="background-color: #24313e; margin-right: 2%; margin-left: 2%; padding-left: 3%;">
-                <h4 style="color: white;">My Communities</h4>
+                <h4 style="color: white;">My invitations</h4>
             </div>
             <div class="row myCard2 center">
                 <div class="col-1"></div>
-                <div class="col-10">
-                    <button class="btn join-btn" type="button" onclick="getCommuniteis()">My communities</button>
-                    <button class="btn join-btn" type="button" onclick="getAllCommuniteis()">all communities</button>
-                    <button class="btn join-btn" style="margin-left: 1%; background-color:green" type="button" onclick="goToShop()">
-                    <i class="material-icons">shopping_basket</i></button> <a style="font-weight:bold">Items shop</a>
-                    
+                <div class="col-10" id="myInvitations">
                     <?php
+                        $userID = $_SESSION['id'];
+
                         $connection = mysqli_connect("localhost","root","","student_community");
                         if(mysqli_connect_errno()){
                             die("Error: could not connect" . mysqli_connect_error());
                         }
-                        
-                        $userID = $_SESSION['id'];
-                        $sql = "SELECT * FROM invitation WHERE recipient_id ='$userID'";
+
+                        $sql = "SELECT * FROM invitation WHERE recipient_id = '$userID'";
                         if($result=mysqli_query($connection,$sql)){
                             if(mysqli_num_rows($result)>0){
-                                echo "<button class='btn join-btn' type='button' onclick='goToInvitationPage()'>New ivitations</button>";
+                                while($rows=mysqli_fetch_array($result)){
+                                    echo "<div class='row com'>";
+                                    echo "  <div class='col-3'>";
+                                    echo "      <h5 style='padding-left:2%;'>";
+                                    echo            $rows["community_name"];
+                                    echo "      </h5><br>";
+                                    echo "  </div>";
+                                    echo "  <div class='col-4'></div>";
+                                    echo "  <div class='col-2'>";
+                                    echo "  </div>";
+                                    echo "  <div class='col-3'>";
+                                    echo "      <div class='row'>";
+                                    echo "          <button class='btn btn-rounded join-btn' value='";
+                                    echo             $rows['community_name'];
+                                    echo "           ' onclick=";
+                                    echo            "\"acceptInvitation(this.value)\"'>Accept</button><br>";
+                                    echo "          <button class='btn btn-rounded join-btn' style='background-color:rgb(196, 8, 8)' value='";
+                                    echo            $rows['community_name'];
+                                    echo "          ' onclick='removeFromIvitation(this.value)'>Ignore</button><br></div>";
+                                    echo "      </div>";
+                                    echo "  </div>";
+                                    echo "</div>";
+                                    //echo "</div>";
+                                }
+                            }
+                            else{
+                                echo "<h4>You do not have any invitation</h4>";
                             }
                         }
-                        else{
-                            echo $userID;
-                        }
                     ?>
-                </div>
                 <div class="col-3"></div>
             </div>
-                <div class="col myCard" id="myCommunities">
-                </div>
         <div style="background-color:rgb(58, 58, 58); margin-top: 10%;">
             <br><br><br>
             <br><br><br>
