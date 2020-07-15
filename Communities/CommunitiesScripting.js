@@ -271,6 +271,7 @@ function goToShop(){
 
 function goToUniversities(){
     location.href="../university/university.php";
+}
 
 function goToPolls(){
     location.href ="../polling_system/all_polls_page.php";
