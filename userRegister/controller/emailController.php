@@ -28,7 +28,7 @@ function sendVerificationEmail($userEmail, $token){
             <p>
                 Thank you for signing up on our website. click the link below to verify your email.
             </p>
-            <a href="http://localhost/student_community-master/CompaniesEvaluation/HomePage.php?token=' . $token . '">
+            <a href="http://localhost/student_community-testing/userRegister/index.php?token=' . $token . '">
                 Verify your email address
             </a>
         </div>
