@@ -13,13 +13,14 @@
             echo '<div class="card col-12 p-0 mt-1 mb-1 poll-card">';
             echo '    <div class=" card-header" style="cursor:pointer;" data-toggle="collapse" data-target="#collapse'.$poll["id"].'" aria-expanded="true" aria-controls="collapse'.$poll["id"].'">';
             echo '        <div class="row" id="headingOne">';
-            echo '            <h5 class="col-12 mb-0 ">';
+            echo '            <h5 class="col-10 mb-0 ">';
             echo '          <button class="btn btn-link" style="color:black; cursor:pointer;" data-toggle="collapse" data-target="#collapse'.$poll["id"].'" aria-expanded="true" aria-controls="collapse'.$poll["id"].'">';
             echo  $poll['title'];
             echo '          </button>';
             echo '      </h5> ';
             echo '      <h5 class="col-2 mb-0 ">';
-            echo '      </h5>';
+            echo display_total_num_of_votes($poll['id']);
+            echo ' votes     </h5>';
             echo '  </div>';
             echo '</div>'; 
             echo '<div id="collapse'.$poll["id"].'" class="collapse " aria-labelledby="heading'.$poll["id"].'" data-parent="#accordion">';
@@ -54,7 +55,20 @@
                 echo '          </div> ';
             }
         }
-        
-        
+    }
+
+    function display_total_num_of_votes($poll_id){
+        global $connection ;
+        $query = "SELECT COUNT(*) as total_votes from poll_votes where poll_id = '$poll_id'";
+        if($total_votes = mysqli_query($connection,$query)){
+        if(mysqli_num_rows($total_votes) == 1){
+            $total_votes = mysqli_fetch_array($total_votes);
+            $total_votes = $total_votes['total_votes'];
+
+            return $total_votes;
+        }
+        }
+
+
     }
 ?>

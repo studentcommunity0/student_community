@@ -2,6 +2,9 @@ $(document).ready(function(){
 
     // GET ALL POLLS
     $("#active-polls-id").load('retrieve_polls.php');
+    
+    // GET MY POLLS
+    $("#my-polls-id").load('retrieve_my_polls.php');
 
     // GO TO CREATE NEW POLL PAGE
     $("#create_new_poll").on('click', function(){
