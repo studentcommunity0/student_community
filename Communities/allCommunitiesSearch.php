@@ -15,16 +15,34 @@
             echo "          <button class='btn search-btn' onclick='allCommunitiesSearch()' type='button'>";
             echo "              <i class='material-icons'>search</i>";
             echo "          </button>";
-            echo "          <input class='form-control mr-sm-2' id ='allCommunities-search-input' style='width: 85%; background-color: beige;' type='text' placeholder='Searc' onchange='search()' aria-label='Search'>";
+            echo "          <input class='form-control mr-sm-2' id ='allCommunities-search-input' style='width: 60%; background-color: beige;' type='text' placeholder='Search' onchange='search()' aria-label='Search'>";
+            echo "      <button class='btn join-btn' type='button' onclick='goToAddCommunity()'>Add a new community</button>";
+            echo "      <button class='btn join-btn' style='margin-left: 1%;' type='button' onclick='goToPrivateCommunities()'>Join a private community</button>";
             echo "      </form>";
             echo "  </div>";
-            echo "</div>";
+            echo "</div><hr>";
             while($rows=mysqli_fetch_array($result)){
                 echo "<div class='row com'>";
                 echo "<div class='col-3'>";
                 echo "<h5 style='padding-left:2%;'>";
                 echo $rows["name"];
-                echo "</h5><br></div>";
+                //get the unversity ID of the creator
+                $universityID = "";
+                $communityName = $rows["name"];
+                $query = "SELECT creator FROM community WHERE name = '$communityName'";
+                if($idResult=mysqli_query($connection,$query)){
+                    $idRow = mysqli_fetch_array($idResult);
+                    $universityID = $idRow['creator']; 
+                }
+                else {die("the ID is not available");}
+                //get the university name
+                $query2 = "SELECT name FROM university WHERE id = '$universityID'";
+                if($nameResult=mysqli_query($connection,$query2)){
+                    $nameRow = mysqli_fetch_array($nameResult);
+                    $university = $nameRow['name']; 
+                }
+            echo "</h5>";
+            echo "<a style='color:gray'>Created by a participant in " . $university . "</a></div>";
                 echo "<div class='col-4'>";
                 echo "<a style='padding-left: 2%;  font-size: 1em;'>";
                 echo $rows["description"];
@@ -41,7 +59,19 @@
             }
         }
         else{
-            echo "Wrong Query";
+            echo "<div class='row myCard2'>";
+            echo "  <div class='col-12'>";
+            echo "      <form class='form-inline md-form mr-auto mb-4'>";
+            echo "          <button class='btn search-btn' onclick='allCommunitiesSearch()' type='button'>";
+            echo "              <i class='material-icons'>search</i>";
+            echo "          </button>";
+            echo "          <input class='form-control mr-sm-2' id ='allCommunities-search-input' style='width: 60%; background-color: beige;' type='text' placeholder='Searc' onchange='search()' aria-label='Search'>";
+            echo "      <button class='btn join-btn' type='button' onclick='goToAddCommunity()'>Add a new community</button>";
+            echo "      <button class='btn join-btn' style='margin-left: 1%;' type='button' onclick='goToPrivateCommunities()'>Join a private community</button>";
+            echo "      </form>";
+            echo "  </div>";
+            echo "</div><hr>";
+            echo "<h4>This community does not exist";        
         }
     }
     else{

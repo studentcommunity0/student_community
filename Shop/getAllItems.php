@@ -31,6 +31,7 @@
             echo "  <div class='col'>Description</div>";
             echo "  <div class='col'>Price</div>";
             echo "  <div class='col'>Contact Information</div>";
+            echo "  <div class='col'>Seller university</div>";
             echo "  <div class='col'></div>";
             echo "</div>";
             while($row=mysqli_fetch_array($result)){
@@ -54,6 +55,23 @@
                     echo "      <a>" . $row['contact'] . "</a>";
                     echo "  </div>";
                 }
+                //get the unversity ID of the creator
+                $universityID = "";
+                $user = $row["userid"];
+                $query = "SELECT university FROM user WHERE id = '$user'";
+                if($idResult=mysqli_query($connection,$query)){
+                    $idRow = mysqli_fetch_array($idResult);
+                    $universityID = $idRow['university']; 
+                }
+                //get the university name
+                $query2 = "SELECT name FROM university WHERE id = '$universityID'";
+                if($nameResult=mysqli_query($connection,$query2)){
+                    $nameRow = mysqli_fetch_array($nameResult);
+                    $university = $nameRow['name']; 
+                }
+                echo "<div class='col'>";
+                echo "<a>" . $university . "</a>";
+                echo "</div>";
                 echo "<div class='col'>";
                 if($userID == $row['userid']){
                     echo "  <select class='form-control' style='background-color: #3d3d3d; color:orange; font-weight:bold' onchange='changeStatus(this.value," . $row['id'] . ")'>";

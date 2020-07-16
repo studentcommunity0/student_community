@@ -60,14 +60,24 @@
                                 <div class="row pt-3 mx-auto polls-details-header info-header info-header-text">
                                     <div class="col-12">
                                     <h3>POLLS</h3>
-                                    </div>    
-                                    
-                                    
-                                    
+                                    </div>                                        
+                                </div>
+                                <div class="row mx-auto mt-3 mb-2">
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active orange-text-black-bg" id="nav-active-polls-tab" data-toggle="tab" href="#active-polls-id" role="tab" aria-controls="nav-active-polls-id" aria-selected="true">All Polls</a>
+                                            <a class="nav-item nav-link orange-text-black-bg" id="nav-my-polls-tab" data-toggle="tab" href="#my-polls-id" role="tab" aria-controls="nav-my-polls-id" aria-selected="false">My Polls</a>
+                                        </div>
+                                    </nav>
                                     
                                 </div>
-                                <div class="row mx-auto active-polls" id="active-polls-id">
-                                </div>
+                                <div class=" tab-content" id="nav-tabContent">
+                                        <div class="row mx-auto active-polls tab-pane fade show active" id="active-polls-id" role="tabpanel" aria-labelledby="nav-active-polls-tab">
+                                        </div>
+                                        <div class="row mx-auto my-polls tab-pane fade" id="my-polls-id" role="tabpanel" aria-labelledby="nav-my-polls-tab">
+                                        
+                                        </div>
+                                    </div>
                             </div>
                             <!-- Pagination -->
                             <nav class=" col-12 d-flex justify-content-center " id="pagination-for-community-files">
