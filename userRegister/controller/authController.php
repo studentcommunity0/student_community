@@ -23,6 +23,17 @@ if (isset($_POST['registerBtn'])){
     $password1 = mysqli_real_escape_string($db, $_POST['userPassword1']);
     $password2 = mysqli_real_escape_string($db, $_POST['userPassword2']);
 
+    // get university id
+
+    $sql = "SELECT id FROM university WHERE name = '$university'";
+
+    if($result=mysqli_query($db,$sql)){
+        $row = mysqli_fetch_array($result);
+        $universityID = $row['id']; 
+    }else{
+        echo "error getting university id";
+    }
+
     // form validation
 
     if(empty($email)){
@@ -89,7 +100,7 @@ if (isset($_POST['registerBtn'])){
         $query = "INSERT INTO `user`(`username`, `user_type`, `email`, `university`, `major`, `verified`, `status`, `token`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt1 = $db->prepare($query);
         $user_type = 2;
-        $stmt1->bind_param('sisssiiss', $username, $user_type ,$email, $university, $major, $verified, $user_type ,$token, $password);
+        $stmt1->bind_param('sisisiiss', $username, $user_type ,$email, $universityID, $major, $verified, $user_type ,$token, $password);
         //printf("Error: %s.\n", $stmt1->error);
 
         if ($stmt1->execute()){
