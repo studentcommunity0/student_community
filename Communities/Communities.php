@@ -36,6 +36,7 @@
                 <div class="col-10">
                     <button class="btn join-btn" type="button" onclick="getCommuniteis()">My communities</button>
                     <button class="btn join-btn" type="button" onclick="getAllCommuniteis()">all communities</button>
+                    <button class="btn join-btn" type="button" onclick="goToUniversities()">all universities</button>
                     <button class="btn join-btn" style="margin-left: 1%; background-color:green" type="button" onclick="goToShop()">
                     <i class="material-icons">shopping_basket</i></button> <a style="font-weight:bold">Items shop</a>
                     
