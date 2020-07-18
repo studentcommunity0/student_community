@@ -1,6 +1,4 @@
-body {
-    background-image: url("images/BG.png");
-}
+
 .myCard{
     background-color: white;
     box-shadow: 0px 0px 1px black;
@@ -31,9 +29,6 @@ body {
     color: green;
 }
 
-body {
-    background-image: url("images/BG.png");
-}
 .myCard-headerx{
     text-align: center;
     background-color: #2e3e4e;

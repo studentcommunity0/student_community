@@ -33,15 +33,15 @@
     if($result = mysqli_query($connection, $sql2)){
     if(mysqli_num_rows($result)>0){
         while($rows=mysqli_fetch_array($result)){
-            echo "<div class='row com'>";
-            echo "<div class='col'>";
+            echo "<div class='row com info-content'>";
+            echo "<div class='col-lg-6 col-md-12'>";
             echo "<h5 style='padding-left:2%;'>";
             echo $rows["name"];
             echo "</h5><br></div>";
-            echo "<div class='col'>";
-            echo "<button class='btn btn-rounded join-btn' value='";
+            echo "<div class='col-lg-6 col-md-12'>";
+            echo "<button class='orange-btn-black-text-main' value='";
             echo $rows['name'];
-            echo "' onclick='addCompanyToSession(this.value)'>Evaluation</button><br></div>";
+            echo "' onclick='addCompanyToSession(this.value)'>Reviews</button><br></div>";
             echo "</div>";
         }
     }

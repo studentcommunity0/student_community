@@ -283,7 +283,7 @@
       </div>  
     </section>
   <!-- /MAIN CONTAINER -->
-
+  </div>
   <!-- FOOTER -->
   <footer class="page-footer font-small blue">
 
@@ -294,8 +294,7 @@
     <!-- Copyright -->
 
     </footer>
-  <!-- /FOOTER -->
-  </div>
+  <!-- /FOOTER --> 
   <?php require('../commonscripts.php'); ?>
   <script src="../assets/js/sidenavbar.js"></script>
   <script src="assets/js/companyreview.js"></script>

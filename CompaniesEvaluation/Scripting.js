@@ -1,3 +1,13 @@
+function get_industries(){
+    $("#company-industry").load('get_all_industries.php');
+}
+
+function removeparameters(){
+    const url = new URL(location);
+    url.searchParams.delete('status');
+    history.replaceState(null, null, url)
+}
+
 function add(n){
     location.href = "newCompany.php";
 }
@@ -5,29 +15,43 @@ function add(n){
 function addCompany(){
     var companyName = document.getElementById("company-name").value;
     var companyURL = document.getElementById("company-url").value;
+    var companyContactUsURL = document.getElementById("company-contact-us-url").value;
     var companyDisc = document.getElementById("company-disc").value;
-
-    if(companyName=="" || companyDisc=="" || companyURL==""){
+    var companyIndustry = document.getElementById("company-industry").value;
+    url_syntax = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i');
+    if(companyName=="" || companyDisc=="" || companyURL==""|| companyIndustry=="" || companyContactUsURL==""|| !url_syntax.test(companyURL)|| !url_syntax.test(companyContactUsURL)){
         document.getElementById("error-message").style.visibility = "";
         if(companyName==""){
             document.getElementById("company-name").style.borderColor = "red";
         }
-        if(companyURL==""){
+        if(companyURL=="" || !url_syntax.test(companyURL)){
             document.getElementById("company-url").style.borderColor = "red";
+        }
+        if(companyContactUsURL=="" || !url_syntax.test(companyContactUsURL)){
+            document.getElementById("company-contact-us-url").style.borderColor = "red";
         }
         if(companyDisc==""){
             document.getElementById("company-disc").style.borderColor = "red";
+        }
+        if(companyIndustry==""){
+            document.getElementById("company-industry").style.borderColor = "red";
         }
     }
     else{
         xml = new XMLHttpRequest();
 
-        xml.open("GET","addNewCompany.php?companyName="+companyName+"&companyURL="+companyURL+"&companyDisc="+companyDisc,"true");
+        xml.open("GET","addNewCompany.php?companyName="+companyName+"&companyURL="+companyURL+"&companyContactUsURL="+companyContactUsURL+"&companyDisc="+companyDisc+"&companyIndustry="+companyIndustry,"true");
         xml.send();
 
         xml.onreadystatechange=function(){
             if(xml.readyState==4){
-                alert(xml.responseText);
+                
+                window.location.href='TrainingEvaluation.php?status='+xml.responseText;
             }
         }
     }
@@ -59,9 +83,10 @@ function getCompanies(){
 
 function search(){
     var searchInput = document.getElementById("search-input").value;
-    
+    let search_type = document.getElementById("search_type").value;
     xml3 = new XMLHttpRequest();
-    xml3.open("GET","searching.php?searchInput="+searchInput,true);
+    let url =  "searching.php?searchInput="+searchInput+"&search_type="+search_type;
+    xml3.open("GET",url,true);
     xml3.send();
 
     xml3.onreadystatechange = function(){
