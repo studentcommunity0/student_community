@@ -9,10 +9,10 @@
  <a href="../userRegister/"><i class="fa fa-th-large "></i> Dashboard</a>
         </div>
         <div class="sidenavbaritems">
-          <a href="../CompaniesEvaluation/HomePage.php"><i class="fa fa-building"></i> Companies</a>
+          <a href="../Communities/communities.php"><i class="fa fa-users"></i> Communities</a>
         </div>
         <div class="sidenavbaritems">
-          <a href="../Communities/communities.php"><i class="fa fa-users"></i> Communities</a>
+          <a href="../CompaniesEvaluation/TrainingEvaluation.php"><i class="fa fa-building"></i> Internships</a>
         </div>
         <div class="sidenavbaritems">
           <a href="../userRegister/userProfile.php"><i class="fa fa-user-circle"></i> Profile</a>
