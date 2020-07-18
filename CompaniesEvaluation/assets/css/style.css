@@ -1,6 +1,10 @@
 
 /* COMPANY DETAILS SECTION */
-
+#contact-us-btn{
+    color:#3d3d3d;
+}#contact-us-btn:hover{
+    color:#ff9e01;
+}
 
 /* COMPANY REVIEWS SECTION */
 .reviewer-div{
