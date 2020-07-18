@@ -58,7 +58,8 @@
           <div class="col-12 mt-4"> 
             <div class="row mb-3">
               <div class="col-xs-12 col-sm-4">
-              <a  style="color: black" href='<?php echo $company["website"];?>'><h2 id="company-name"><?php echo $company["name"];?></h2></a>
+              <a  style="color: black" href='<?php echo $company["website"];?>'><h2 id="company-name" data-hover="tooltip" data-placement="bottom" title='<?php echo $company["website"];?>'><?php echo $company["name"];?><a  href='<?php echo $company["contact_us_page"];?>'><i id="contact-us-btn" class="fa fa-share-square-o ml-2" data-hover="tooltip" data-placement="bottom" title="Contact Us"></i></a></h2></a>
+              
               </div>
               <div class="col-xs-12 col-sm-10" id="company_rating">
                 
@@ -283,7 +284,7 @@
       </div>  
     </section>
   <!-- /MAIN CONTAINER -->
-
+  </div>
   <!-- FOOTER -->
   <footer class="page-footer font-small blue">
 
@@ -294,8 +295,7 @@
     <!-- Copyright -->
 
     </footer>
-  <!-- /FOOTER -->
-  </div>
+  <!-- /FOOTER --> 
   <?php require('../commonscripts.php'); ?>
   <script src="../assets/js/sidenavbar.js"></script>
   <script src="assets/js/companyreview.js"></script>
