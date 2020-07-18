@@ -10,37 +10,21 @@ h3{
 
 /* user profile page */
 
-.userInfoCon{
-    width: 600px;
-    height: 800px;
-    border: 5px solid black;
-    margin: 0 auto;
-    border-radius: 3%;
-    margin-top: 70px !important;
-    background-color: aliceblue;
-}
-@media only screen and (max-width: 600px) {
-    .userInfoCon{
-        width: 95%;
-    }
-}
+
 
 #userInfoHeader{
-    border-bottom: 5px solid black;
+    border-bottom: 1px solid black;
     text-align: center;
 }
 
 .userInfo{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .userInfo h5{
-    /* margin-top: 30px; */
     margin-left: 15px;
 }
 #secondCol{
     margin-left: 45px;
-    
-    
 }
 
 .containerPass{
@@ -167,4 +151,27 @@ body{
   text-shadow:0px 1px 0px #ffa601;
   width: 80px;
   text-align: center;
+}
+
+
+/* test */
+
+.com{
+  padding-top: 1%;
+  padding-right: 2%;
+  border-bottom: rgba(206, 204, 204, 0.637) solid;
+  border-width: thin;
+}
+
+.myCard{
+  background-color: white;
+  box-shadow: 0px 0px 2px black;
+  padding: 10px;
+  margin-top: 200px;
+}
+
+/* login */
+
+.submit{
+  background-color:#ffa601;
 }
