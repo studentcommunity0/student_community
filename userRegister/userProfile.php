@@ -26,80 +26,69 @@ require_once("ChangeUserInfo.php");
 
 <!-- user information -->
 
-    <div class="container-fluid">
+        
 
-        <div class="row">
-            <div class="col-12">
-                <div class="userInfoCon">
-                    
-                    <h2 id="userInfoHeader">User Information</h2> 
-                    
-                    <div class="userInfo">
-                        <div class="row">
-                            <div class="col-12">
-                                <?php if(count($errors) > 0): ?>
-                                    <div class="alert alert-danger">
-                                    <?php foreach($errors as $error): ?>
-                                    <li><?php echo $error ?></li>
-                                    <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if(count($success) > 0): ?>
-                                    <div class="alert alert-success">
-                                    <?php foreach($success as $s): ?>
-                                    <li><?php echo $s ?></li>
-                                    <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
+    <div class="myCard" style="margin-left: 32%; margin-right: 32%; border-radius: 25px; "> 
+        <h4 id="userInfoHeader">User Information</h4> 
+        <div class="userInfo">
+            <div class="row">
+                <div class="col-12">
+                    <?php if(count($errors) > 0): ?>
+                        <div class="alert alert-danger">
+                        <?php foreach($errors as $error): ?>
+                        <li><?php echo $error ?></li>
+                        <?php endforeach; ?>
                         </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <h5>Username: </h5>
-                            </div>
-                            <div class="col-4 col-sm-4" id="secondCol">
-                                <?php 
-                                    echo $_SESSION['username'];
-                                ?>
-                            </div>
-                            <div class="col-4 col-sm-2" >
-                                
-                                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change</button>
-                            </div>
+                    <?php endif; ?>
+                    <?php if(count($success) > 0): ?>
+                        <div class="alert alert-success">
+                        <?php foreach($success as $s): ?>
+                        <li><?php echo $s ?></li>
+                        <?php endforeach; ?>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-2">
-                                <h5>Email: </h5>
-                            </div>
-                            <div class="col-6 col-sm-4" id="secondCol">
-                            <?php 
-                                echo $_SESSION['email'];
-                            ?>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-2">
-                                <h5>Password: </h5>
-                            </div>
-                            <div class="col-6 col-sm-4" id="secondCol">
-                            -----
-                            </div>
-                            <div class="col-4 col-sm-2" >
-                                
-                                <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Change</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-
+                    <?php endif; ?>
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="col-2">
+                    <h5>Username: </h5>
+                </div>
+                <div class="col-4 col-sm-4" id="secondCol">
+                    <?php 
+                        echo $_SESSION['username'];
+                    ?>
+                </div>
+                <div class="col-4 col-sm-2" >
+                    
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2">
+                    <h5>Email: </h5>
+                </div>
+                <div class="col-6 col-sm-4" id="secondCol">
+                <?php 
+                    echo $_SESSION['email'];
+                ?>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2">
+                    <h5>Password: </h5>
+                </div>
+                <div class="col-6 col-sm-4" id="secondCol">
+                -----
+                </div>
+                <div class="col-4 col-sm-2" >
+                    
+                    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Change</button>
+                </div>
+            </div>
+
         </div>
-        
     </div>
     
     <!-- overlay card for changing username-->
