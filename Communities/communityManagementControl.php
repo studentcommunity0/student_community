@@ -25,7 +25,7 @@
         echo "did not perform the query";
     }
 
-    echo "<h4 style='background-color:#BC9051; font-weight:bold; color:white'>Community ID<h4>";
+    echo "<h4 class='info-header info-header-text'>Community ID<h4>";
     $sql1="SELECT id FROM community WHERE name = '$communityName'";
     if($result1 = mysqli_query($connectio,$sql1)){
         if(mysqli_num_rows($result1)>0){
@@ -34,16 +34,10 @@
         }
     }
     echo "<h5>" . $communityID . "</h5><br>";
-    echo "<h4 style='background-color:#BC9051; font-weight:bold; color:white'>Community Participants<h4>";
+    echo "<h4 class='info-header info-header-text'>Community Participants<h4>";
     echo "<div class='row'>";
-    echo "<div class='col-3'>";
-    echo "<h5 style='padding-left:2%;'>";
-    echo "Username";
-    echo "</h5><br></div>";
-    echo "<div class='col-4'>";
-    echo "<a style='padding-left: 2%;  font-size: 1em;'>";
-    echo "Email";
-    echo "</a><br></div></div>";
+    echo "<div id='removePart-alert'></div>";
+    echo "</div>";
 
     $sql2 = "SELECT * from user WHERE id IN (";
     $sql2 = $sql2 . $participantsIDs . ")";

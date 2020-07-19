@@ -17,8 +17,5 @@
         }
         else{
             echo "Failed to send";
-        }
-    
-        mysqli_close($connection);
-        
+        }        
 ?>

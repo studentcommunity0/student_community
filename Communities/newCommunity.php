@@ -25,12 +25,14 @@
         <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
         
-        <div class="myCard" style="margin-left: 30%; margin-right: 30%; margin-top: 5%;  border-radius: 25px; "> 
+        <div class="myCard info-content" style="margin-left: 30%; margin-right: 30%; margin-top: 5%;  border-radius: 25px; "> 
             <h5 style="font-weight: bold; text-align: center; padding-top: 7%;">ADD A NEW COMMMUNITY FORM</h5><br>
             <hr>
             <form action="addNewCompany.php" id="add-company-form" style="margin-left: 5%; margin-right: 5%;">
                 <div class="form-group">
-                  <a id="info-message" class="bg-dark p-3 mb-2" style="display:block; color: whitesmoke; font-size: 13px; font-weight: bold;">Community names can have Letters, numbers & whitspaces..</a>
+                    <a id="info-message" class="bg-dark p-3 mb-2" style="display:block; color: whitesmoke; font-size: 13px; font-weight: bold;">Community names can have Letters, numbers & whitspaces..</a>
+                    <div class="" id="add-alert">
+                    </div>         
                   <label for="exampleFormControlInput1" style="font-weight: bold;">Community Name:</label>
                   <input type="text" class="form-control" id="community-name">
                 </div>
@@ -55,7 +57,7 @@
                   <textarea class="form-control" id="community-disc" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-rounded" id="add-company" style="background-color: #BC9051; font-weight: bold; color: white;" type="button" onclick="addCommunity()">Add the Community</button>    
+                    <button class="btn btn-rounded orange-btn-black-text-main" id="add-company" style="" type="button" onclick="addCommunity()">Add the Community</button>    
                 </div>
                 <a id="community-error-message" style="visibility: hidden; color: red; font-weight: bold;">Please fill the empty text inputs</a>
             </form>

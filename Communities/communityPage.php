@@ -26,27 +26,28 @@
     <body onload="communityPageStart()">
       <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
-     <div>
-            <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
-        </div>
        
         <div id="main" style="text-align:center">
         </div>
-        <div class="myCard" id="reply-textarea">
+        <div class="myCard info-content" id="reply-textarea">
+            <div class="info-content" id="reply-alert">
+            </div>
             <strong>REPLY</strong><br>
             <textarea name="editor2" id="editor2"></textarea>
             <script>
                     CKEDITOR.replace( 'editor2' );
             </script>
-            <button class='btn' onclick="sendTheReply()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send Reply-></button>
+            <button class='btn black-text-orange-bg' onclick="sendTheReply()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send Reply-></button>
         </div>
-        <div class="myCard" id="message-textarea">
+        <div class="myCard info-content" id="message-textarea">
+            <div class="info-content" id="msg-alert">
+            </div>
             <strong>NEW MESSAGE</strong><br>
             <textarea name="editor1" id="editor1"></textarea>
             <script>
                     CKEDITOR.replace( 'editor1' );
             </script>
-            <button class='btn' onclick="sendTheMessage()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send -></button>
+            <button class='btn black-text-orange-bg' onclick="sendTheMessage()" style='width:40%;margin:1%;background-color:rgb(37, 100, 37); color:white; font-weight:bold'>Send -></button>
         </div>
     </body>
 </html>

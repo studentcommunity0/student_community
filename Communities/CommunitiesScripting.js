@@ -53,13 +53,14 @@ function setCategory(C){
 }
 
 function addCommunity(){
+    
     var communityName = document.getElementById("community-name").value;
     var availability= Availability;
     var category = Category;
     var communityDescription = document.getElementById("community-disc").value;
 
     if(communityName=="" || communityDescription==""){
-        //document,getElementById("community-error-message").style.visibility = "";
+        document.getElementById("community-error-message").style.visibility = "";
         if(communityName==""){
             document.getElementById("community-name").style.borderColor="red";
         }
@@ -69,7 +70,7 @@ function addCommunity(){
     }
     else{
         community_name_syntax = new RegExp("^([A-za-z]+[0-9]*)*$");
-        console.log(community_name_syntax.test(communityName));
+        console.log(!community_name_syntax.test(communityName));
         if(!community_name_syntax.test(communityName) ){
             document.getElementById("community-name").style.borderColor="red";
         }
@@ -80,13 +81,23 @@ function addCommunity(){
 
             xml.onreadystatechange=function(){
                 if(xml.readyState==4){
-                    alert(xml.responseText);
+                    document.getElementById('add-alert').innerHTML="";
+                    const alert = document.querySelector('#add-alert');
+                    alert.appendChild(createAlert(xml.responseText));
                 }
             }
         }
     }
 }
 
+function createAlert(name) {
+    let div = document.createElement('div');
+    div.classList = "alert alert-warning alert-dismissible fade show";
+    let a = document.createElement('a');
+    a.textContent = name;
+    div.appendChild(a);
+    return div;
+}
 function getAllCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getAllCommunities.php",true);
@@ -118,7 +129,10 @@ function joinCommunity(com){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-                alert(xml.responseText);
+            document.getElementById('join-alert').innerHTML="";
+            const alert2 = document.querySelector('#join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
+            location.href = "#join-alert";
         }
     }
 }
@@ -131,13 +145,15 @@ function leaveCommunity(com){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
+            document.getElementById('join-alert').innerHTML="";
+            const alert2 = document.querySelector('#join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
+            location.href = "#join-alert";
         }
     }
 }
 
 function joinPrivateCommunities(){
-    
     var communityName = document.getElementById("private-community-name").value;
     var communityID = document.getElementById("private-community-id").value;
 
@@ -147,7 +163,9 @@ function joinPrivateCommunities(){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
+            document.getElementById('private-join-alert').innerHTML="";
+            const alert2 = document.querySelector('#private-join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
         }
     }
 }
@@ -155,6 +173,7 @@ function joinPrivateCommunities(){
 function communityPageStart(){
     $("#message-textarea").hide();
     $("#reply-textarea").hide();
+    
     xml = new XMLHttpRequest();
     xml.open("GET","GetTheMessages.php",true);
     xml.send();
@@ -193,8 +212,10 @@ function removePart(id){
     xml.open("GET","removePart.php?id="+id,true);
     xml.send();
     xml.onreadystatechange=function(){
-        if(xml.readyState==4){
-            alert(xml.responseText);
+        if(xml.readyState==4){removePart-alert
+            document.getElementById('removePart-alert').innerHTML="";
+            const alert2 = document.querySelector('#removePart-alert');
+            alert2.appendChild(createAlert(xml.responseText));
         }
     }
 }
@@ -216,7 +237,6 @@ function setMessageToSession(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
         }
     }
 }
@@ -227,14 +247,15 @@ function sendTheMessage(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
+            document.getElementById('msg-alert').innerHTML="";
+            const alert = document.querySelector('#msg-alert');
+            alert.appendChild(createAlert(xml.responseText));
         }
     }
 }
 
 function reply(id){
     var divid= "ta"+id;
-    alert(document.getElementById("divid").innerHTML)
     document.getElementById("divid").style.visibility = "visible";
 }
 
@@ -246,7 +267,51 @@ function sendTheReply(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
+            document.getElementById('reply-alert').innerHTML="";
+            const alert = document.querySelector('#reply-alert');
+            alert.appendChild(createAlert(xml.responseText));
+        }
+    }
+}
+
+function sendInvitation(com){
+    var recipientEmail = document.getElementById('invite-input').value;
+    var communityName = com;
+    xml = new XMLHttpRequest();
+    xml.open("GET","sendInvetation.php?recipientEmail="+recipientEmail+"&communityName="+communityName,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
             alert(xml.responseText);
+        }
+    }
+}
+
+function goToInvitationPage(){
+    location.href="myInvitations.php";
+}
+
+function removeFromIvitation(communityName){
+    xml = new XMLHttpRequest();
+    xml.open("GET","removeFromIvitation.php?communityName="+communityName,true);
+    xml.send();
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            document.getElementById('invitations-alert').innerHTML="";
+            const alert = document.querySelector('#invitations-alert');
+            alert.appendChild(createAlert("The invitation ignored"));
+        }
+    }
+}
+
+function acceptInvitation(community){
+    joinCommunity(community);
+    removeFromIvitation(community);
+     xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            document.getElementById('invitations-alert').innerHTML="";
+            const alert = document.querySelector('#invitations-alert');
+            alert.appendChild(createAlert("The invitation accepted"));
         }
     }
 }
@@ -261,4 +326,8 @@ function goToEvents(){
 
 function goToShop(){
     location.href="../Shop/shop.php";
+}
+
+function goToPolls(){
+    location.href ="../polling_system/all_polls_page.php";
 }

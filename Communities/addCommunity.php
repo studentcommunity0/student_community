@@ -24,6 +24,4 @@
         else{
             echo "This community is already exist";
         }
-    
-        mysqli_close($connection);
 ?>
