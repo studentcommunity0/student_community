@@ -28,6 +28,7 @@
             <h5 style="font-weight: bold; text-align: center; padding-top: 7%;">ADD A NEW ITEM FORM</h5><br>
             <hr>
             <form style="margin-left: 5%; margin-right: 5%;">
+            <div class='item-alert'></div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1" style="font-weight: bold;">*Item:</label>
                   <input type="text" class="form-control" id="item-name">
@@ -56,7 +57,7 @@
                 <div class="form-group">
                     <button class="btn orange-btn-black-text-main" type="button" onclick="addItem()">Add the Item</button>    
                 </div>
-                <a id="community-error-message" style="visibility: hidden; color: red; font-weight: bold;">Please fill the empty text inputs</a>
+                <a id="shop-error-message" style="visibility: hidden; color: red; font-weight: bold;">Please fill the empty text inputs</a>
             </form>
             <br><br>
         </div>
