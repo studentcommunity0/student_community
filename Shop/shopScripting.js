@@ -27,7 +27,16 @@ function addItem(){
     var contact = document.getElementById("item-contact").value;
     
     if(Item=="" || price=="" || contact==""){
-        alert("error")
+        document.getElementById("shop-error-message").style.visibility = "";
+        if(item==""){
+            document.getElementById("item-name").style.borderColor = "red";
+        }
+        if(price==""){
+            document.getElementById("item-price").style.borderColor = "red";
+        }
+        if(contact==""){
+            document.getElementById("item-contact").style.borderColor = "red";
+        }
     }
     else{
         xml = new XMLHttpRequest();
@@ -37,9 +46,21 @@ function addItem(){
         xml.onreadystatechange=function(){
             if(xml.readyState==4){
                 alert(xml.responseText);
+                document.getElementById('item-alert').innerHTML="";
+                const alert = document.querySelector('#item-alert');
+                alert.appendChild(createAlert(xml.responseText));
             }
         }
     }
+}
+
+function createAlert(name) {
+    let div = document.createElement('div');
+    div.classList = "alert alert-warning alert-dismissible fade show";
+    let a = document.createElement('a');
+    a.textContent = name;
+    div.appendChild(a);
+    return div;
 }
 
 function myItems(){
