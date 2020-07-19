@@ -24,7 +24,7 @@
     else{
         echo "wrong query1";
     }
-
+    
     $sql2 = "SELECT * FROM community WHERE name IN (";
     $sql2 = $sql2 . "" . $myCommunities . ")";
     if($result2 = mysqli_query($connection, $sql2)){
@@ -51,7 +51,7 @@
                         $university = $nameRow['name']; 
                     }
                     echo "</h5>";
-                    echo "<a style='color:gray'>Created by a participant in " . $university . "</a></div>";
+                    echo "<a style='color:rgb(95, 95, 95)'>Created by a participant in " . $university . "</a></div>";
                     echo "<div class='col-3'>";
                     echo "<a style='padding-left: 2%;  font-size: 1em;'>";
                     echo $rows2["description"];
@@ -62,7 +62,7 @@
                     echo "</a><br></div>";
                     echo "<div class='col-3'>";
                     echo "<div class='row'>";
-                    echo "<button class='btn btn-rounded join-btn' value='";
+                    echo "<button class='btn btn-rounded join-btn black-text-orange-bg' value='";
                     echo $rows2['name'];
                     echo "' onclick=";
                     echo "\"addCommunityToSession(this.value)\">community page</button><br>";
@@ -88,7 +88,7 @@
                     echo "</a><br></div>";
                     echo "<div class='col-3'>";
                     echo "<div class='row'>";
-                    echo "<button class='btn btn-rounded join-btn' value='";
+                    echo "<button class='btn btn-rounded join-btn black-text-orange-bg' value='";
                     echo $rows2['name'];
                     echo "' onclick=";
                     echo "\"addCommunityToSession(this.value)\">community page</button><br>";

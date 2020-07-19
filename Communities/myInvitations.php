@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Communities</title>
+        <title>My Invitations</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -25,11 +25,8 @@
         <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
 
-        <div>
-            <img src="images/SHI.jpg" style="width: 100%;" alt="Image">
-        </div>
-            <div class="row" style="background-color: #24313e; margin-right: 2%; margin-left: 2%; padding-left: 3%;">
-                <h4 style="color: white;">My invitations</h4>
+            <div class="row info-header info-header-text" style="margin-right: 2%; margin-left: 2%; padding-left: 3%;margin-top:1%">
+                <h4>My invitations</h4>
             </div>
             <div class="row myCard2 center">
                 <div class="col-1"></div>
@@ -46,6 +43,7 @@
                         if($result=mysqli_query($connection,$sql)){
                             if(mysqli_num_rows($result)>0){
                                 while($rows=mysqli_fetch_array($result)){
+                                    echo "<dvi id='invitations-alert'></div>";
                                     echo "<div class='row com'>";
                                     echo "  <div class='col-3'>";
                                     echo "      <h5 style='padding-left:2%;'>";
@@ -57,7 +55,7 @@
                                     echo "  </div>";
                                     echo "  <div class='col-3'>";
                                     echo "      <div class='row'>";
-                                    echo "          <button class='btn btn-rounded join-btn' value='";
+                                    echo "          <button class='btn btn-rounded join-btn black-text-orange-bg' value='";
                                     echo             $rows['community_name'];
                                     echo "           ' onclick=";
                                     echo            "\"acceptInvitation(this.value)\"'>Accept</button><br>";

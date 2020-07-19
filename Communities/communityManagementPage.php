@@ -26,11 +26,8 @@
         <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
 
-        <div>
-            <img src="images/SHIj.jpg" style="width: 100%;" alt="Image">
-        </div>
-        <div class='row myCard' style="background-color:#24313e; font-weight:bold; color:white; font-size:150%">Community Information</div>
-        <div class="col myCard" id="members">
+        <div class='row myCard info-header info-header-text' style="font-size:150%">Community Information</div>
+        <div class="myCard inf-content" id="members">
         </div>
     </body>
 </html>

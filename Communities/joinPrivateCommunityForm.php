@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Training Evaluation</title>
+        <title>Private Community</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -26,9 +26,10 @@
         <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
 
-        <div class="myCard" style="margin-left: 30%; margin-right: 30%; margin-top: 5%;  border-radius: 25px; "> 
+        <div class="myCard info-content" style="margin-left: 30%; margin-right: 30%; margin-top: 5%;  border-radius: 25px; "> 
             <h5 style="font-weight: bold; text-align: center; padding-top: 7%;">JOIN A PRIVATE COMMMUNITY FORM</h5><br>
             <hr>
+            <div id="private-join-alert"></div>
             <form action="addNewCompany.php" id="add-company-form" style="margin-left: 5%; margin-right: 5%;">
                 <div class="form-group">
                   <label for="exampleFormControlInput1" style="font-weight: bold;">Community Name:</label>
@@ -39,7 +40,7 @@
                   <input type="text" class="form-control" id="private-community-id">
                 </div>                
                 <div class="form-group">
-                    <button class="btn btn-rounded" id="add-company" style="background-color: #BC9051; font-weight: bold; color: white;" type="button" onclick="joinPrivateCommunities()">Join the Community</button>    
+                    <button class="btn btn-rounded orange-btn-black-text-main" id="add-company" type="button" onclick="joinPrivateCommunities()">Join the Community</button>    
                 </div>
                 <a id="community-error-message" style="visibility: hidden; color: red; font-weight: bold;">Please fill the empty text inputs</a>
             </form>

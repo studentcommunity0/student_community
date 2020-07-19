@@ -35,19 +35,20 @@
         echo "</div>";
         echo "<div class'row' style='padding:1%'>";
         if($creatorID == $userID){
-            echo "<button class='btn black-text-orange-bg' onclick='goToEvents()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Events</button>";
-            echo "<button class='btn' onclick='goToPolls()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Pollings</button>";
-            echo "<button class='btn' onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button>";
-            echo "<button class='btn' style='margin-left:3%; background-color:rgb(56, 148, 56); color:white; font-weight:bold' value='";
+            echo "<button class='btn black-text-orange-bg' onclick='goToEvents()' style='margin-right:10px;font-weight:bold'>Events</button>";
+            echo "<button class='btn black-text-orange-bg' onclick='goToPolls()' style='margin-right:10px;font-weight:bold'>Pollings</button>";
+            echo "<button class='btn black-text-orange-bg' onclick='showTexrarea()' style='font-weight:bold'>Send a message</button>";
+            echo "<a href='../Drive/sharedfiles.php'><button class='btn black-text-orange-bg' onclick='communitySharedFiles()' style='margin-left:10px;font-weight:bold'>View Shared Files</button></a>";
+            echo "<button class='btn ' style='margin-left:10px; background-color:rgb(56, 148, 56); color:lightgray; font-weight:bold' value='";
             echo $communityName;
-            echo "' onclick='goToManagingPage(this.value)'>Manage Community</button></div></div></div><br>";
+            echo "' onclick='goToManagingPage(this.value)'>Manage Community</button></div></div></div>";
         }
         else{
-            echo "<button class='btn' onclick='goToEvents()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Show events</button>";
-            echo "<button class='btn' onclick='goToPolls()' style='background-color:#BC9051; margin-right:10px; color:white; font-weight:bold'>Pollings</button>";
-            echo "<button class='btn'onclick='showTexrarea()' style='background-color:#BC9051; color:white; font-weight:bold'>Send a message</button></div></div></div><br>";
+            echo "<button class='btn black-text-orange-bg' onclick='goToEvents()' style='margin-right:10px;font-weight:bold'>Events</button>";
+            echo "<button class='btn black-text-orange-bg' onclick='goToPolls()' style='margin-right:10px;font-weight:bold'>Pollings</button>";
+            echo "<button class='btn black-text-orange-bg' onclick='showTexrarea()' style='font-weight:bold'>Send a message</button>";
+            echo "<a href='../Drive/sharedfiles.php'><button class='btn black-text-orange-bg' onclick='communitySharedFiles()' style='margin-left:10px;font-weight:bold'>View Shared Files</button></a></div></div></div>";
         }
-        echo "<a href='../Drive/sharedfiles.php'><button class='btn' onclick='communitySharedFiles()' style='background-color:#BC9051; color:white; font-weight:bold'>View Shared Files</button></a>";
         if(mysqli_num_rows($result1)>0){
             while($rows=mysqli_fetch_array($result1)){
                 echo "<div class='row' style='margin:2%; border-top:solid 3px #e2ac60; background-color:white;box-shadow: 0px 0px 2px black;'>";
@@ -85,7 +86,7 @@
                 echo "<div class='row' style='background-Color: white; height:75%; padding-top:2%; padding-left:10px'><a>";
                 echo $rows['message'];
                 echo "</a></div>";
-                echo "<button class='btn' style='background-color:#BC9051; color:white; font-weight:bold' onclick='showReplyArea(";
+                echo "<button class='btn black-text-orange-bg' style='background-color:#BC9051; color:white; font-weight:bold' onclick='showReplyArea(";
                 echo $rows['id'];
                 echo ")'>Reply</button><hr>";
                 echo "</div>";

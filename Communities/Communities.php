@@ -24,22 +24,12 @@
     <body onload="getCommuniteis()">
         <!--NAVBAR-->
         <?php require('../studentcommunitynavbar.php');?>
-
-        <div>
-            <img src="images/SHI.jpg" style="width: 100%;" alt="Image">
-        </div>
-            <div class="row" style="background-color: #24313e; margin-right: 2%; margin-left: 2%; padding-left: 3%;">
-                <h4 style="color: white;">My Communities</h4>
-            </div>
-            <div class="row myCard2 center">
+            
+            <div class="row myCard2 info-content" style='box-shadow: 0px 0px 5px gray;'>
                 <div class="col-1"></div>
                 <div class="col-10">
-                    <button class="btn join-btn" type="button" onclick="getCommuniteis()">My communities</button>
-                    <button class="btn join-btn" type="button" onclick="getAllCommuniteis()">all communities</button>
-                    <button class="btn join-btn" type="button" onclick="goToUniversities()">all universities</button>
-                    <button class="btn join-btn" style="margin-left: 1%; background-color:green" type="button" onclick="goToShop()">
-                    <i class="material-icons">shopping_basket</i></button> <a style="font-weight:bold">Items shop</a>
-                    
+                    <button class="btn join-btn orange-btn-black-text-main" type="button" onclick="getCommuniteis()">My communities</button>
+                    <button class="btn join-btn orange-btn-black-text-main" type="button" onclick="getAllCommuniteis()">all communities</button>
                     <?php
                         $connection = mysqli_connect("localhost","root","","student_community");
                         if(mysqli_connect_errno()){
@@ -50,18 +40,28 @@
                         $sql = "SELECT * FROM invitation WHERE recipient_id ='$userID'";
                         if($result=mysqli_query($connection,$sql)){
                             if(mysqli_num_rows($result)>0){
-                                echo "<button class='btn join-btn' type='button' onclick='goToInvitationPage()'>New ivitations</button>";
+                                echo "<button class='btn join-btn orange-btn-black-text-main' type='button' onclick='goToInvitationPage()'>New ivitations</button>";
                             }
                         }
                         else{
                             echo $userID;
                         }
                     ?>
+                    <button class="btn join-btn " style="margin-left: 1%; background-color:green" type="button" onclick="goToShop()">
+                    <i class="material-icons">shopping_basket</i></button> <a style="font-weight:bold">Items shop</a>
+                    
                 </div>
                 <div class="col-3"></div>
             </div>
-                <div class="col myCard" id="myCommunities">
+            <div class="row" style="margin-left:2%;margin-right:2%;text-align:center">
+                <div class="col-12" id="join-alert">
                 </div>
+            </div>
+            <div class="row info-header" style="margin-right: 2%; margin-left: 2%; padding-left: 3%;">
+                <h4 class="info-header-text">My Communities</h4>
+            </div>
+            <div class="myCard " style="box-shadow: 0px 0px 5px gray;"  id="myCommunities">
+            </div>
         <div style="background-color:rgb(58, 58, 58); margin-top: 10%;">
             <br><br><br>
             <br><br><br>

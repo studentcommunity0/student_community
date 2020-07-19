@@ -53,6 +53,7 @@ function setCategory(C){
 }
 
 function addCommunity(){
+    
     var communityName = document.getElementById("community-name").value;
     var availability= Availability;
     var category = Category;
@@ -70,7 +71,7 @@ function addCommunity(){
     else{
         community_name_syntax = new RegExp("^([A-za-z]+[0-9]*)*$");
         console.log(!community_name_syntax.test(communityName));
-        if(community_name_syntax.test(communityName) ){
+        if(!community_name_syntax.test(communityName) ){
             document.getElementById("community-name").style.borderColor="red";
         }
         else{
@@ -80,13 +81,23 @@ function addCommunity(){
 
             xml.onreadystatechange=function(){
                 if(xml.readyState==4){
-                    alert(xml.responseText);
+                    document.getElementById('add-alert').innerHTML="";
+                    const alert = document.querySelector('#add-alert');
+                    alert.appendChild(createAlert(xml.responseText));
                 }
             }
         }
     }
 }
 
+function createAlert(name) {
+    let div = document.createElement('div');
+    div.classList = "alert alert-warning alert-dismissible fade show";
+    let a = document.createElement('a');
+    a.textContent = name;
+    div.appendChild(a);
+    return div;
+}
 function getAllCommuniteis(){
     xml = new XMLHttpRequest();
     xml.open("GET","getAllCommunities.php",true);
@@ -118,7 +129,10 @@ function joinCommunity(com){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-                alert(xml.responseText);
+            document.getElementById('join-alert').innerHTML="";
+            const alert2 = document.querySelector('#join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
+            location.href = "#join-alert";
         }
     }
 }
@@ -131,8 +145,10 @@ function leaveCommunity(com){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
-            location.href= 'http://localhost/StudentCommunity/Communities/communities.php';
+            document.getElementById('join-alert').innerHTML="";
+            const alert2 = document.querySelector('#join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
+            location.href = "#join-alert";
         }
     }
 }
@@ -147,7 +163,9 @@ function joinPrivateCommunities(){
 
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
+            document.getElementById('private-join-alert').innerHTML="";
+            const alert2 = document.querySelector('#private-join-alert');
+            alert2.appendChild(createAlert(xml.responseText));
         }
     }
 }
@@ -194,9 +212,10 @@ function removePart(id){
     xml.open("GET","removePart.php?id="+id,true);
     xml.send();
     xml.onreadystatechange=function(){
-        if(xml.readyState==4){
-            alert(xml.responseText);
-            location.href= "http://localhost/StudentCommunity/Communities/communityManagementPage.php";
+        if(xml.readyState==4){removePart-alert
+            document.getElementById('removePart-alert').innerHTML="";
+            const alert2 = document.querySelector('#removePart-alert');
+            alert2.appendChild(createAlert(xml.responseText));
         }
     }
 }
@@ -218,7 +237,6 @@ function setMessageToSession(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
         }
     }
 }
@@ -229,15 +247,15 @@ function sendTheMessage(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
-            location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
+            document.getElementById('msg-alert').innerHTML="";
+            const alert = document.querySelector('#msg-alert');
+            alert.appendChild(createAlert(xml.responseText));
         }
     }
 }
 
 function reply(id){
     var divid= "ta"+id;
-    alert(document.getElementById("divid").innerHTML)
     document.getElementById("divid").style.visibility = "visible";
 }
 
@@ -249,8 +267,9 @@ function sendTheReply(){
     xml.send();
     xml.onreadystatechange=function(){
         if(xml.readyState==4){
-            alert(xml.responseText);
-            location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
+            document.getElementById('reply-alert').innerHTML="";
+            const alert = document.querySelector('#reply-alert');
+            alert.appendChild(createAlert(xml.responseText));
         }
     }
 }
@@ -276,15 +295,25 @@ function removeFromIvitation(communityName){
     xml = new XMLHttpRequest();
     xml.open("GET","removeFromIvitation.php?communityName="+communityName,true);
     xml.send();
-    alert("The invitation ignored");
-    location.href('http://localhost/StudentCommunity/Communities/myInvitations.php')
+    xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            document.getElementById('invitations-alert').innerHTML="";
+            const alert = document.querySelector('#invitations-alert');
+            alert.appendChild(createAlert("The invitation ignored"));
+        }
+    }
 }
 
 function acceptInvitation(community){
     joinCommunity(community);
     removeFromIvitation(community);
-    alert("The invitation accepted");
-    location.href= "http://localhost/StudentCommunity/Communities/communityPagg.php"
+     xml.onreadystatechange=function(){
+        if(xml.readyState==4){
+            document.getElementById('invitations-alert').innerHTML="";
+            const alert = document.querySelector('#invitations-alert');
+            alert.appendChild(createAlert("The invitation accepted"));
+        }
+    }
 }
 // LINK TO SHARED FILES FOR EACH COMMUNITY
 function communitySharedFiles(){
@@ -298,11 +327,6 @@ function goToEvents(){
 function goToShop(){
     location.href="../Shop/shop.php";
 }
-
-function goToUniversities(){
-    location.href="../university/university.php";
-}
-
 
 function goToPolls(){
     location.href ="../polling_system/all_polls_page.php";

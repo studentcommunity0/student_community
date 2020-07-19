@@ -7,16 +7,17 @@
     $sql = "SELECT * FROM community WHERE availability = 'public'";
     if($result = mysqli_query($connection,$sql)){
         if(mysqli_num_rows($result)>0){
-            echo "<div class='row myCard2'>";
+            //echo "<div id='join-alert'></div>";
+            echo "<div class='row'>";
             echo "  <div class='col-12'>";
-            echo "      <form class='form-inline md-form mr-auto mb-4'>";
-            echo "          <button class='btn search-btn' onclick='allCommunitiesSearch()' type='button'>";
-            echo "              <i class='material-icons'>search</i>";
-            echo "          </button>";
-            echo "          <input class='form-control mr-sm-2' id ='allCommunities-search-input' style='width: 60%; background-color: beige;' type='text' placeholder='Search' onchange='search()' aria-label='Search'>";
-            echo "      <button class='btn join-btn' type='button' onclick='goToAddCommunity()'>Add a new community</button>";
-            echo "      <button class='btn join-btn' style='margin-left: 1%;' type='button' onclick='goToPrivateCommunities()'>Join a private community</button>";
-            echo "      </form>";
+            echo "      <div class='input-group search-bar'>";
+            echo "          <input id='allCommunities-search-input' type='text' class='form-control orange-text-black-bg' style='width:50%' placeholder='Search..'>";
+            echo "          <div class='input-group-append'>";
+            echo "              <button id='search-drive-content' class='btn btn-outline-primary black-text-orange-bg' type='button' onclick='allCommunitiesSearch()'><i class='fa fa-search'></i></button>";
+            echo "          </div>";
+            echo "       </div>";
+            echo "          <button class='btn join-btn black-text-orange-bg' type='button' onclick='goToAddCommunity()'>Add a new community</button>";
+            echo "          <button class='btn join-btn black-text-orange-bg' style='margin-left: 1%;' type='button' onclick='goToPrivateCommunities()'>Join a private community</button>";
             echo "  </div>";
             echo "</div><hr>";
             while($rows=mysqli_fetch_array($result)){
@@ -50,7 +51,7 @@
                 echo $rows["date"];
                 echo "</a><br></div>";
                 echo "<div class='col-3'>";
-                echo "<button class='btn btn-rounded join-btn' value='";
+                echo "<button class='btn btn-rounded join-btn black-text-orange-bg' value='";
                 echo $rows['name'];
                 echo "' onclick='joinCommunity(this.value)'>Join</button><br></div>";
                 echo "</div>";
