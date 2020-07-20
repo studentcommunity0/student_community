@@ -97,7 +97,7 @@ function retrieve_files_via_pagination(page){
     $("#file-details-id").replaceWith($("#file-details-id").load(link)); 
 
 }
-=======
+
 $(document).ready(function(){
 
     // generating pagination for the pages
