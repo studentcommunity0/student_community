@@ -48,20 +48,35 @@ $(document).ready(function(){
     
 });
 
-
 function give_new_option_list(){
     let num_options = $("#select_num_of_options").val()
     let options_div = $("#options")
     $(options_div).empty()
     let input
     let unique_name
+    let input_label
+    let option_holder_div
     for(let i=0; i<num_options;++i){
-        input = document.createElement("input");
+        
+        option_holder_div = document.createElement("div");
+        option_holder_div.setAttribute('class', "form-group");
+        
         unique_name = "option"+i;
+
+        input_label = document.createElement("label");
+        input_label.setAttribute('style', "font-weight: bold");
+        input_label.innerHTML = "option "+(i+1);
+
+        input = document.createElement("input");
         input.setAttribute('name', unique_name);
         input.setAttribute('id', unique_name);
-        input.setAttribute('class', 'input_option');
-        options_div.append(input);
+        input.setAttribute('style', "height:50px");
+        input.setAttribute('class', 'input_option col-12 orange-text-black-bg form-control');
+        
+        option_holder_div.append(input_label)
+        option_holder_div.append(input)
+        
+        options_div.append(option_holder_div);
     }
 }
 
